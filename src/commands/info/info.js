@@ -18,7 +18,7 @@ module.exports.info = async function (interaction) {
           (acc, guild) => acc + guild
         )} users and probably growing.\n Bot is up for ${humanizedDuration(
         interaction.client.uptime
-      )}. \n Running Public Alpha 1.0.0`
+      )}. \n Running Public Alpha 1.0.4`
     )
     .addField(
       "Creator info and links",

@@ -5,7 +5,7 @@ module.exports = {
     console.log("[Bot] Bot is successfully online.");
 
     const activityTexts = [
-      "with Public Alpha 1.0.0",
+      "with Public Alpha 1.0.4",
       { name: "which content to blam or save", type: "WATCHING" },
       { name: "Newgrounds radio", type: "LISTENING" },
       { name: "my next Flash Game", type: "COMPETING" },
