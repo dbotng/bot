@@ -16,7 +16,6 @@
   "scripts": {
     "pregit": "npm run lint && npm run format",
     "git": "standard-version",
-    "posgit": "git push --follow-tags",
     "lint": "eslint --ext js --fix src",
     "format": "prettier src/**/*.js -w",
     "prestart": "node src/deploy.js",
