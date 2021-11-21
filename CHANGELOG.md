@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/Featyre/D-Bot/compare/v1.0.3...v1.0.4) (2021-11-21)
+
+
+### Bug Fixes
+
+* change version number ([88f6207](https://github.com/Featyre/D-Bot/commit/88f620752641188bd613ea784e58e44046c506f3))
+
 ### [1.0.3](https://github.com/Featyre/D-Bot/compare/v1.0.2...v1.0.3) (2021-11-21)
 
 
