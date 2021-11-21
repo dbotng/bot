@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.3](https://github.com/Featyre/D-Bot/compare/v1.0.2...v1.0.3) (2021-11-21)
+
+
+### Bug Fixes
+
+* removing package-lock.json from the repo ([0fa2839](https://github.com/Featyre/D-Bot/commit/0fa283989bc746a273d1f3a3e8dcbd6f537562e6))
+
 ### [1.0.2](https://github.com/Featyre/D-Bot/compare/v1.0.1...v1.0.2) (2021-11-21)
 
 
