@@ -1,5 +1,5 @@
-# D-bot
-An awesome Newgrounds Discord bot, that's it. We got Newgrounds Radio support, and things are on the way. That's it.
+# D-bot V2
+An awesome Newgrounds Discord bot, better than Fulptron. Now in Typescript!
 
 ## V2 Rewrite
 Yeah i'm rewriting this thing, check `v2` branch.
