@@ -1,5 +1,5 @@
 # D-bot V2
-An awesome Newgrounds Discord bot, better than Fulptron. Now in Typescript!
+An awesome Newgrounds Discord bot. Now in Typescript!
 
 ## Disclaimer
 I'm not good at JS yet, still a beginner, and currently using linting and shit too pull this off so if you want to improve the bot feel free too. BTW, no warranty.
