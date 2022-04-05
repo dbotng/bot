@@ -1,0 +1,26 @@
+{
+    "root": true,
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier",
+        "plugin:node/recommended",
+        "plugin:eslint-comments/recommended"
+    ],
+    "plugins": ["@typescript-eslint"],
+    "env": {
+        "node": true,
+        "es6": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+        "node/no-unsupported-features/es-syntax": "off", // Typescript compiler converts those
+        "node/no-missing-import": "off", // Not working on nested folders even on VSCode
+        "@typescript-eslint/no-var-requires": "off", // Requires require() since import() is async
+        "@typescript-eslint/no-non-null-assertion": "off", // required for process.env to not error
+        "@typescript-eslint/no-explicit-any": "off" // required for discordjs.d.ts
+    }
+}
