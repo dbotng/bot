@@ -3,4 +3,3 @@ config.yaml
 config.prod.yaml
 .env
 dist
-package-lock.json
