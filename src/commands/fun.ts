@@ -2,7 +2,6 @@ import { SlashCommandBuilder } from '@discordjs/builders'
 import { CommandInteraction } from 'discord.js'
 
 import * as echo from './fun/echo'
-import embedBuilder from '../builders/embedBuilder'
 
 export const data = new SlashCommandBuilder()
     .setName('fun')
@@ -18,25 +17,12 @@ export const data = new SlashCommandBuilder()
                     .setRequired(true)
             )
     )
-    .addSubcommand((command) =>
-        command.setName('testembed').setDescription('test embedding')
-    )
 
-export async function execute(interaction: CommandInteraction): Promise<void> {
+export async function execute(interaction: CommandInteraction) {
     switch (interaction.options.getSubcommand()) {
         case 'echo': {
             await echo.execute(interaction)
             break
-        }
-        case 'testembed': {
-            await interaction.reply({
-                embeds: [
-                    new embedBuilder(
-                        'hello',
-                        'this is a cooldown test'
-                    ).create(),
-                ],
-            })
         }
     }
 }
