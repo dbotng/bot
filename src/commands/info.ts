@@ -1,7 +1,7 @@
 import { SlashCommandBuilder } from '@discordjs/builders'
 import { CommandInteraction } from 'discord.js'
 
-import typescript from './info/typescript'
+import * as typescript from './info/typescript'
 
 export const data = new SlashCommandBuilder()
     .setName('info')
@@ -13,7 +13,8 @@ export const data = new SlashCommandBuilder()
 export async function execute(interaction: CommandInteraction): Promise<void> {
     switch (interaction.options.getSubcommand()) {
         case 'typescript': {
-            await typescript(interaction)
+            await typescript.execute(interaction)
+            break
         }
     }
 }
