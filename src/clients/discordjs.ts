@@ -5,7 +5,7 @@ export const client = new Client({
     intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_VOICE_STATES],
 })
 
-export function init(): void {
+export function init() {
     client.commands = new Collection()
 
     const commandFiles = fs

@@ -5,7 +5,7 @@ export const name = 'ready'
 
 export const once = true
 
-export function execute(client: Client): void {
+export function execute(client: Client) {
     console.log('[discord.js] Success')
     const activityTexts: ActivityOptions[] = [
         { name: `with ${process.env.version}`, type: 'PLAYING' },
