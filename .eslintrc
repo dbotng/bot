@@ -10,7 +10,7 @@
     "plugins": ["@typescript-eslint"],
     "env": {
         "node": true,
-        "es6": true
+        "es2022": true
     },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -18,9 +18,6 @@
     },
     "rules": {
         "node/no-unsupported-features/es-syntax": "off", // Typescript compiler converts those
-        "node/no-missing-import": "off", // Not working on nested folders even on VSCode
-        "@typescript-eslint/no-var-requires": "off", // Requires require() since import() is async
-        "@typescript-eslint/no-non-null-assertion": "off", // required for process.env to not error
-        "@typescript-eslint/no-explicit-any": "off" // required for discordjs.d.ts
+        "node/no-missing-import": "off" // Not working on nested folders even on VSCode
     }
 }
