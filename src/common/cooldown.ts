@@ -1,3 +1,7 @@
+import { CommandInteraction } from 'discord.js'
+import humanizeDuration from 'humanize-duration'
+import embedBuilder from '../builders/embedBuilder'
+
 const cooldown = global.cooldown
 
 const shouldElapse = 10000
@@ -11,40 +15,47 @@ function whitelist(command: string, subcommand: string) {
     }
 }
 
-export function check(
-    guildId: string,
-    channelId: string,
-    memberId: string,
-    command: string,
-    subcommand: string
-) {
-    if (whitelist(command, subcommand) == false) {
-        return false
-    }
-
+export async function check(interaction: CommandInteraction) {
     if (
-        cooldown.has(
-            `${guildId}_${channelId}_${memberId}_${command}_${subcommand}`
-        )
+        whitelist(
+            interaction.commandName,
+            interaction.options.getSubcommand()
+        ) == false
     ) {
-        return true
-    } else {
-        return false
-    }
-}
-
-export async function create(
-    guildId: string,
-    channelId: string,
-    memberId: string,
-    command: string,
-    subcommand: string
-) {
-    if (whitelist(command, subcommand) == false) {
         return
     }
 
-    const cooldownId = `${guildId}_${channelId}_${memberId}_${command}_${subcommand}`
+    const cooldownId = `${interaction.guildId}_${interaction.channelId}_${
+        interaction.user.id
+    }_${interaction.commandName}_${interaction.options.getSubcommand()}`
+
+    if (cooldown.has(cooldownId)) {
+        await interaction.reply({
+            embeds: [
+                new embedBuilder(
+                    'Cooldown is active!',
+                    `Please wait for ${humanizeDuration(
+                        global.cooldown.get(cooldownId) - Date.now()
+                    )} before trying.`
+                ).create(),
+            ],
+        })
+    }
+}
+
+export async function create(interaction: CommandInteraction) {
+    if (
+        whitelist(
+            interaction.commandName,
+            interaction.options.getSubcommand()
+        ) == false
+    ) {
+        return
+    }
+
+    const cooldownId = `${interaction.guildId}_${interaction.channelId}_${
+        interaction.user.id
+    }_${interaction.commandName}_${interaction.options.getSubcommand()}`
 
     cooldown.set(cooldownId, Date.now() + shouldElapse)
     setTimeout(() => {
