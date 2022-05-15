@@ -14,11 +14,13 @@ export function execute(client: Client) {
         { name: 'game medals', type: 'COMPETING' },
     ]
 
-    setInterval(() => {
-        client?.user?.setActivity(
-            activityTexts[
-                Math.floor(Math.random() * (activityTexts.length - 1) + 1)
-            ]
-        )
-    }, 10000)
+    setInterval(
+        () =>
+            client?.user?.setActivity(
+                activityTexts[
+                    Math.floor(Math.random() * (activityTexts.length - 1) + 1)
+                ]
+            ),
+        10000
+    )
 }

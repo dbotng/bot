@@ -4,6 +4,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 declare global {
     var cooldown: Map
+    var musicQueues: Map
+    enum radioStations {
+        easyListening = 'Easy Listening',
+    }
 }
 
 export {}

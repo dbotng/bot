@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model servers {
+  id       String @id
+  settings Json   @default("{\"cooldown\": {\"time\": 5, \"commands\": [\"audio_play\", \"audio_leave\"]}}")
+}
+
+model user {
+  id                  Int        @id
+  newgroundsUserId    Int
+  newgroundsSupporter Boolean
+  newgrounds          newgrounds @relation(fields: [newgroundsUserId, newgroundsSupporter], references: [id, supporter])
+
+  @@unique([newgroundsUserId, newgroundsSupporter])
+}
+
+model newgrounds {
+  id        Int
+  username  String  @unique
+  supporter Boolean
+  user      user?
+
+  @@id([id, supporter])
+}

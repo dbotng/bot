@@ -3,3 +3,4 @@ config.yaml
 config.prod.yaml
 .env
 dist
+prisma/migrations

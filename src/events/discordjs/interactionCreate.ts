@@ -1,6 +1,6 @@
 import { Interaction } from 'discord.js'
 import * as cooldown from '../../common/cooldown'
-import errorEmbedBuilder from '../../builders/errorEmbedBuilder'
+import commandErrorEmbedBuilder from '../../builders/commandErrorEmbedBuilder'
 
 export const name = 'interactionCreate'
 
@@ -21,7 +21,9 @@ export async function execute(interaction: Interaction) {
     } catch (error) {
         console.error(error)
         await interaction.reply({
-            embeds: [new errorEmbedBuilder(`\`\`\`${error}\`\`\``).create()],
+            embeds: [
+                new commandErrorEmbedBuilder().create(`\`\`\`${error}\`\`\``),
+            ],
             ephemeral: true,
         })
     }
