@@ -8,24 +8,20 @@ datasource db {
 }
 
 model servers {
-  id       String @id @unique
+  id       String @id
   settings Json   @default("{\"cooldown\": {\"time\": 5, \"commands\": [\"audio_play\", \"audio_leave\"]}}")
 }
 
 model user {
-  id                  Int        @id @unique
-  newgroundsUserId    Int
-  newgroundsSupporter Boolean
-  newgrounds          newgrounds @relation(fields: [newgroundsUserId, newgroundsSupporter], references: [id, supporter])
-
-  @@unique([newgroundsUserId, newgroundsSupporter])
+  id         String       @id
+  settings   Json
+  newgrounds newgrounds[]
 }
 
 model newgrounds {
-  id        Int     @unique
-  username  String  @unique
-  supporter Boolean
-  user      user?
-
-  @@id([id, supporter])
+  id            Int     @id
+  username      String  @unique
+  supporter     Boolean
+  discordUserID String
+  discordUser   user    @relation(fields: [discordUserID], references: [id])
 }
