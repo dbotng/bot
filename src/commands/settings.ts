@@ -17,4 +17,10 @@ export async function execute(interaction: CommandInteraction) {
             break
         }
     }
+    switch (interaction.options.getSubcommandGroup()) {
+        case 'change': {
+            await change.execute(interaction)
+            break
+        }
+    }
 }
