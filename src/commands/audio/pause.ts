@@ -8,11 +8,12 @@ export async function execute(interaction: CommandInteraction) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const guildId = interaction.guildId!
     const queue = distube.client.getQueue(guildId)
-    voice.userCheck(interaction, queue)
-    if (interaction.replied) return
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    voice.songCheck(interaction, queue!)
-    if (interaction.replied) return
+    if (
+        (await voice.userCheck(interaction, queue)) &&
+        (await voice.songCheck(interaction, queue))
+    ) {
+        return
+    }
     distube.client.pause(guildId)
     await interaction.reply({
         embeds: [new commandSuccessEmbedBuilder().create('Song is paused.')],

@@ -6,24 +6,34 @@ export async function userCheck(
     interaction: CommandInteraction,
     queue: Queue | undefined
 ) {
-    if (
-        queue instanceof Queue &&
-        interaction.options.getSubcommand() != ('playing' || 'queue') &&
-        interaction.member instanceof GuildMember &&
-        (!interaction.member.voice.channel ||
-            interaction.member.voice.channel != queue.voiceChannel)
-    )
-        await interaction.reply({
-            embeds: [
-                new userErrorEmbedBuilder().create(
-                    `You must be in ${queue.voiceChannel?.name} to do this action.`
-                ),
-            ],
-        })
-    else if (
+    if (interaction.options.getSubcommand() != ('playing' || 'queue')) {
+        if (!(interaction.member as GuildMember).voice.channel) {
+            await interaction.reply({
+                embeds: [
+                    new userErrorEmbedBuilder().create(
+                        `You must be in a voice channel to do this action.`
+                    ),
+                ],
+            })
+            return true
+        } else if (
+            queue instanceof Queue &&
+            (interaction.member as GuildMember).voice.channel !=
+                queue.voiceChannel
+        ) {
+            await interaction.reply({
+                embeds: [
+                    new userErrorEmbedBuilder().create(
+                        `You must be in ${queue.voiceChannel?.name} to do this action.`
+                    ),
+                ],
+            })
+            return true
+        }
+    } else if (
         typeof queue === 'undefined' &&
         interaction.options.getSubcommand() != 'play'
-    )
+    ) {
         await interaction.reply({
             embeds: [
                 new userErrorEmbedBuilder().create(
@@ -31,7 +41,9 @@ export async function userCheck(
                 ),
             ],
         })
-    else return
+        return true
+    }
+    return false
 }
 
 export async function songCheck(
@@ -41,7 +53,7 @@ export async function songCheck(
     if (
         queue instanceof Queue &&
         queue.songs[0].streamURL?.includes('https://stream01.ungrounded.net/')
-    )
+    ) {
         await interaction.reply({
             embeds: [
                 new userErrorEmbedBuilder().create(
@@ -49,4 +61,7 @@ export async function songCheck(
                 ),
             ],
         })
+        return true
+    }
+    return false
 }

@@ -13,18 +13,18 @@ export async function execute(interaction: Interaction) {
 
     if (!command) return
 
+    if (await cooldown.check(interaction)) return
+
     try {
-        cooldown.check(interaction)
-        if (interaction.replied) return
         await command.execute(interaction)
-        cooldown.create(interaction)
     } catch (error) {
         console.error(error)
         await interaction.reply({
             embeds: [
                 new commandErrorEmbedBuilder().create(`\`\`\`${error}\`\`\``),
             ],
-            ephemeral: true,
         })
     }
+
+    cooldown.create(interaction)
 }

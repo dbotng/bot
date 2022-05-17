@@ -8,10 +8,12 @@ export async function execute(interaction: CommandInteraction) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const guildId = interaction.guildId!
     const queue = distube.client.getQueue(guildId)
-    voice.userCheck(interaction, queue)
-    if (interaction.replied) return
-    voice.songCheck(interaction, queue)
-    if (interaction.replied) return
+    if (
+        (await voice.userCheck(interaction, queue)) &&
+        (await voice.songCheck(interaction, queue))
+    ) {
+        return
+    }
     let musicList = ''
     for (let i = 0; i < 6; i++) {
         if (queue?.songs[i]) {

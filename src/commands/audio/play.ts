@@ -11,8 +11,8 @@ export async function execute(interaction: CommandInteraction) {
     const guildId = interaction.guildId!
     const queue = distube.client.getQueue(guildId)
     const link = interaction.options.getString('link')
-    voice.userCheck(interaction, queue)
-    if (interaction.replied) return
+    const member = interaction.member as GuildMember
+    if (await voice.userCheck(interaction, queue)) return
     if (queue?.paused) {
         distube.client.resume(guildId)
         await interaction.reply({
@@ -20,13 +20,10 @@ export async function execute(interaction: CommandInteraction) {
                 new commandSuccessEmbedBuilder().create('Song is unpaused.'),
             ],
         })
-        return
-    }
-    if (
+    } else if (
         !link ||
         (!link.includes('newgrounds.com') &&
-            interaction.member instanceof GuildMember &&
-            interaction.member.id != process.env.token)
+            member.id != interaction.client.application?.owner?.id)
     ) {
         await interaction.reply({
             embeds: [
@@ -35,21 +32,18 @@ export async function execute(interaction: CommandInteraction) {
                 ),
             ],
         })
-        return
-    }
-    if (
+    } else if (
         queue?.songs[0].streamURL?.includes('https://stream01.ungrounded.net/')
     ) {
         distube.client.stop(guildId)
-    }
-    if (interaction.member instanceof GuildMember) {
+    } else {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        distube.client.play(interaction.member.voice.channel!, link, {
-            member: interaction.member,
+        distube.client.play(member.voice.channel!, link, {
+            member: member,
         })
         await interaction.deferReply()
         global.musicQueues.set(
-            `${interaction.guildId}_${interaction.member.id}`,
+            `${interaction.guildId}_${member.id}`,
             interaction
         )
     }
