@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.0](https://github.com/Featyre/D-Bot/compare/v1.0.4...v2.0.0-alpha.0) (2022-05-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **functionality:** Refactor music and added database
+
+### Features
+
+* **code:** Embed builders ([c0370a8](https://github.com/Featyre/D-Bot/commit/c0370a8a29eef14e15dfcf64246fa285923f4cf5))
+* **functionality:** added commands ([caacefa](https://github.com/Featyre/D-Bot/commit/caacefa0ec4bfaee0e61b0fa4c87f0ca3619dab6))
+* **functionality:** added cooldown ([3b0932f](https://github.com/Featyre/D-Bot/commit/3b0932fae65380890c1ea3b3629a6c33ab24752f))
+* **functionality:** added distube client ([e689e35](https://github.com/Featyre/D-Bot/commit/e689e3546f32c48c506df755720b20171505a349))
+* **functionality:** Added temp files for change settings ([3204e85](https://github.com/Featyre/D-Bot/commit/3204e858a73cec77cbd9da8f27fa67859eb3dbb9))
+* **functionality:** Refactor music and added database ([ca8ad29](https://github.com/Featyre/D-Bot/commit/ca8ad29dcd2159583d8974daab1bb718dc0a1621))
+
 ### [1.0.4](https://github.com/Featyre/D-Bot/compare/v1.0.3...v1.0.4) (2021-11-21)
 
 ### Bug Fixes
