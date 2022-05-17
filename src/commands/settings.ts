@@ -2,13 +2,13 @@ import { SlashCommandBuilder } from '@discordjs/builders'
 import { CommandInteraction } from 'discord.js'
 
 import * as get from './settings/get'
+import * as change from './settings/change'
 
 export const data = new SlashCommandBuilder()
     .setName('settings')
     .setDescription('Settings commands')
-    .addSubcommand((command) =>
-        command.setName('get').setDescription('Get all settings')
-    )
+    .addSubcommand(get.data)
+    .addSubcommandGroup(change.data)
 
 export async function execute(interaction: CommandInteraction) {
     switch (interaction.options.getSubcommand()) {

@@ -2,7 +2,7 @@ import { SlashCommandBuilder } from '@discordjs/builders'
 import { CommandInteraction } from 'discord.js'
 
 import * as play from './audio/play'
-//import * as radio from './audio/radio'
+import * as radio from './audio/radio'
 import * as pause from './audio/pause'
 import * as skip from './audio/skip'
 import * as stop from './audio/stop'
@@ -15,62 +15,16 @@ import * as queue from './audio/queue'
 export const data = new SlashCommandBuilder()
     .setName('audio')
     .setDescription('Audio-portal related commands')
-    .addSubcommand((command) =>
-        command
-            .setName('play')
-            .setDescription('Play audio from Newgrounds')
-            .addStringOption((option) =>
-                option.setName('link').setDescription('Newgrounds audio link')
-            )
-    )
-    .addSubcommand((command) =>
-        command.setName('radio').setDescription('Play from Newgrounds radio')
-    )
-    .addSubcommand((command) =>
-        command.setName('pause').setDescription('Pause the audio')
-    )
-    .addSubcommand((command) =>
-        command
-            .setName('skip')
-            .setDescription('Skip to the next song in the queue')
-    )
-    .addSubcommand((command) =>
-        command
-            .setName('stop')
-            .setDescription('Stop the audio and deletes the queue')
-    )
-    .addSubcommand((command) =>
-        command
-            .setName('leave')
-            .setDescription(
-                'Stop the audio, deletes the queue and leave the channel'
-            )
-    )
-    .addSubcommand((command) =>
-        command
-            .setName('volume')
-            .setDescription('Set volume')
-            .addNumberOption((option) =>
-                option
-                    .setName('percent')
-                    .setDescription('The volume percentage')
-                    .setRequired(true)
-            )
-    )
-    .addSubcommand((command) =>
-        command
-            .setName('repeat')
-            .setDescription('Set repeat mode')
-            .addStringOption((option) =>
-                option.setName('mode').setDescription('Mode to repeat')
-            )
-    )
-    .addSubcommand((command) =>
-        command.setName('playing').setDescription("See what's playing")
-    )
-    .addSubcommand((command) =>
-        command.setName('queue').setDescription("See what's next on the queue")
-    )
+    .addSubcommand(play.data)
+    .addSubcommand(radio.data)
+    .addSubcommand(pause.data)
+    .addSubcommand(skip.data)
+    .addSubcommand(stop.data)
+    .addSubcommand(leave.data)
+    .addSubcommand(volume.data)
+    .addSubcommand(repeat.data)
+    .addSubcommand(playing.data)
+    .addSubcommand(queue.data)
 
 export async function execute(interaction: CommandInteraction) {
     switch (interaction.options.getSubcommand()) {

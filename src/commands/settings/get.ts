@@ -1,7 +1,12 @@
+import { SlashCommandSubcommandBuilder } from '@discordjs/builders'
 import { CommandInteraction } from 'discord.js'
 import embedBuilder from '../../builders/embedBuilder'
 import prisma from '../../clients/prisma'
 import SettingsQuery from '../../interfaces/SettingsQuery'
+
+export const data = new SlashCommandSubcommandBuilder()
+    .setName('get')
+    .setDescription('Get all settings')
 
 export async function execute(interaction: CommandInteraction): Promise<void> {
     const query: unknown = await prisma.servers.findUnique({

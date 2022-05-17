@@ -6,17 +6,7 @@ import * as echo from './fun/echo'
 export const data = new SlashCommandBuilder()
     .setName('fun')
     .setDescription('Fun commands')
-    .addSubcommand((command) =>
-        command
-            .setName('echo')
-            .setDescription('Echos the content')
-            .addStringOption((option) =>
-                option
-                    .setName('content')
-                    .setDescription('Content to echo')
-                    .setRequired(true)
-            )
-    )
+    .addSubcommand(echo.data)
 
 export async function execute(interaction: CommandInteraction) {
     switch (interaction.options.getSubcommand()) {

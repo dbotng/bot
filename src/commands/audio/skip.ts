@@ -1,9 +1,14 @@
+import { SlashCommandSubcommandBuilder } from '@discordjs/builders'
 import { CommandInteraction } from 'discord.js'
 import commandSuccessEmbedBuilder from '../../builders/commandSuccessEmbedBuilder'
 import userErrorEmbedBuilder from '../../builders/userErrorEmbedBuilder'
 import * as distube from '../../clients/distube'
 
 import * as voice from '../../common/voice'
+
+export const data = new SlashCommandSubcommandBuilder()
+    .setName('skip')
+    .setDescription('Skip to the next song in the queue')
 
 export async function execute(interaction: CommandInteraction) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

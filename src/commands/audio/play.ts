@@ -1,10 +1,23 @@
 import { CommandInteraction, GuildMember } from 'discord.js'
+import {
+    SlashCommandStringOption,
+    SlashCommandSubcommandBuilder,
+} from '@discordjs/builders'
 import commandSuccessEmbedBuilder from '../../builders/commandSuccessEmbedBuilder'
 import userErrorEmbedBuilder from '../../builders/userErrorEmbedBuilder'
 import * as distube from '../../clients/distube'
 import 'dotenv/config'
 
 import * as voice from '../../common/voice'
+
+export const data = new SlashCommandSubcommandBuilder()
+    .setName('play')
+    .setDescription('Play audio from Newgrounds')
+    .addStringOption(arg1)
+
+function arg1(option: SlashCommandStringOption) {
+    return option.setName('link').setDescription('Newgrounds audio link')
+}
 
 export async function execute(interaction: CommandInteraction) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

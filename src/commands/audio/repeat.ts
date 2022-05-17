@@ -1,8 +1,21 @@
+import {
+    SlashCommandStringOption,
+    SlashCommandSubcommandBuilder,
+} from '@discordjs/builders'
 import { CommandInteraction } from 'discord.js'
 import commandSuccessEmbedBuilder from '../../builders/commandSuccessEmbedBuilder'
 import * as distube from '../../clients/distube'
 
 import * as voice from '../../common/voice'
+
+export const data = new SlashCommandSubcommandBuilder()
+    .setName('repeat')
+    .setDescription('Set repeat mode')
+    .addStringOption(arg1)
+
+function arg1(option: SlashCommandStringOption) {
+    return option.setName('mode').setDescription('Mode to repeat')
+}
 
 enum Repeat {
     off,

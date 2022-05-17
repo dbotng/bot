@@ -6,9 +6,7 @@ import * as typescript from './info/typescript'
 export const data = new SlashCommandBuilder()
     .setName('info')
     .setDescription('Information commands')
-    .addSubcommand((command) =>
-        command.setName('typescript').setDescription('Welcome to typescript!')
-    )
+    .addSubcommand(typescript.data)
 
 export async function execute(interaction: CommandInteraction) {
     switch (interaction.options.getSubcommand()) {
