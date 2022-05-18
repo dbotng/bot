@@ -1,21 +1,21 @@
 import { SlashCommandSubcommandGroupBuilder } from '@discordjs/builders'
 import { CommandInteraction } from 'discord.js'
 
-import * as cooldownTime from './change/cooldownTime'
-import * as cooldownCommands from './change/cooldownCommands'
+import * as cooldown_time from './change/cooldown_time'
+import * as cooldown_commands from './change/cooldown_commands'
 
 export const data = new SlashCommandSubcommandGroupBuilder()
     .setName('change')
     .setDescription('Change settings')
-    .addSubcommand(cooldownTime.data)
-    .addSubcommand(cooldownCommands.data)
+    .addSubcommand(cooldown_time.data)
+    .addSubcommand(cooldown_commands.data)
 
 export async function execute(interaction: CommandInteraction) {
     switch (interaction.options.getSubcommand()) {
-        case 'cooldownTime': {
+        case 'cooldown_time': {
             break
         }
-        case 'cooldownCommands': {
+        case 'cooldown_commands': {
             break
         }
     }

@@ -2,7 +2,6 @@ import { SlashCommandSubcommandBuilder } from '@discordjs/builders'
 import { CommandInteraction } from 'discord.js'
 import embedBuilder from '../../builders/embedBuilder'
 import prisma from '../../clients/prisma'
-import SettingsQuery from '../../interfaces/SettingsQuery'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('get')
@@ -18,9 +17,9 @@ export async function execute(interaction: CommandInteraction): Promise<void> {
             new embedBuilder().create('Here are your settings', '').addFields({
                 name: 'Cooldown',
                 value: `Time: ${
-                    (query as SettingsQuery)?.settings.cooldown.time
+                    (query as quries.SettingsQuery)?.settings.cooldown.time
                 }\n Enabled commands: ${
-                    (query as SettingsQuery)?.settings.cooldown.commands
+                    (query as quries.SettingsQuery)?.settings.cooldown.commands
                 }`,
             }),
         ],

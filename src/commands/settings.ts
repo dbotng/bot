@@ -16,11 +16,13 @@ export async function execute(interaction: CommandInteraction) {
             await get.execute(interaction)
             break
         }
-    }
-    switch (interaction.options.getSubcommandGroup()) {
-        case 'change': {
-            await change.execute(interaction)
-            break
+        default: {
+            switch (interaction.options.getSubcommandGroup()) {
+                case 'change': {
+                    await change.execute(interaction)
+                    break
+                }
+            }
         }
     }
 }
