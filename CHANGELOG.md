@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.2](https://github.com/Featyre/D-Bot/compare/v2.0.1...v2.0.2) (2022-05-21)
+
+
+### Bug Fixes
+
+* added local clear command to global ([46e0d8b](https://github.com/Featyre/D-Bot/commit/46e0d8b3d04b75eeaed24d6b41ebf36da0b93040))
+
 ### [2.0.1](https://github.com/Featyre/D-Bot/compare/v2.0.0...v2.0.1) (2022-05-21)
 
 
