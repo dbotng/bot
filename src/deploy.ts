@@ -56,6 +56,17 @@ if (process.env.environment == 'dev') {
         { body: [] }
     )
         .then(() =>
+            console.log('[deploy.ts] Successfully cleared local commands')
+        )
+        .catch(console.error)
+    rest.put(
+        Routes.applicationGuildCommands(
+            process.env.clientId!,
+            process.env.guildId!
+        ),
+        { body: [] }
+    )
+        .then(() =>
             console.log('[deploy.ts] Successfully cleared global commands')
         )
         .catch(console.error)
