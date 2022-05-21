@@ -1,4 +1,6 @@
 node_modules
 config.yaml
 config.prod.yaml
-package-lock.json
+.env
+dist
+prisma/migrations

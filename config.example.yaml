@@ -1,6 +1,0 @@
----
-environment: "development"
-token: YOUR-TOKEN-HERE
-clientId: TESTING-CLIENT-SAFELY-IGNORE
-guildId: TESTING-GUILD-SAFELY-IGNORE
-ownerId: TESTING-OWNER-USER-SAFELY-IGNORE
