@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/Featyre/D-Bot/compare/v2.0.0...v2.0.1) (2022-05-21)
+
+
+### Bug Fixes
+
+* switch deploy local and global ([8f685c9](https://github.com/Featyre/D-Bot/commit/8f685c96bba08566a63357006fcf3fedad44c00e))
+
 ## [2.0.0](https://github.com/Featyre/D-Bot/compare/v2.0.0-alpha.1...v2.0.0) (2022-05-21)
 
 
