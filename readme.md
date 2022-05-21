@@ -1,6 +1,6 @@
-# D-bot V2
+# D-bot
 
-An awesome Newgrounds Discord bot. Now in Typescript!
+An awesome Newgrounds Discord bot that has working audio support.
 
 ## Disclaimer
 
@@ -8,7 +8,7 @@ I'm not good at JS yet, still a beginner, and currently using linting and shit t
 
 ## Contributions
 
-Contributions are very much welcome, it's about everything by everyone.
+Contributions are very much welcome, newgrounds is about everything by everyone so why not help each other out?
 
 ## Invite link
 
