@@ -50,11 +50,14 @@ export async function execute(interaction: CommandInteraction) {
     ) {
         distube.client.stop(guildId)
     } else {
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        distube.client.play(member.voice.channel!, link, {
-            member: member,
-        })
-        await interaction.deferReply()
+        distube.client
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            .play(member.voice.channel!, link, {
+                member: member,
+            })
+            .then(async () => {
+                await interaction.deferReply()
+            })
         global.musicQueues.set(
             `${interaction.guildId}_${member.id}`,
             interaction

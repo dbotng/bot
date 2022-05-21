@@ -12,4 +12,4 @@ Contributions are very much welcome, it's about everything by everyone.
 
 ## Invite link
 
-https://discord.com/api/oauth2/authorize?client_id=909375750753361980&permissions=8&scope=bot%20applications.commands
+https://discord.com/api/oauth2/authorize?client_id=909375750753361980&permissions=405916992&scope=bot%20applications.commands

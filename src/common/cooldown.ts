@@ -6,14 +6,34 @@ const cooldown = global.cooldown
 
 const shouldElapse = 10000
 
-function whitelist(command: string, subcommand: string) {
+import prisma from '../clients/prisma'
+import * as queries from '../types/queries'
+
+async function whitelist(interaction: CommandInteraction) {
     //TODO: Database default/custom options
-    switch (`${command}_${subcommand}`) {
-        case 'info_typescript':
-            return true
-        default:
-            return false
-    }
+    const query = (
+        (
+            await prisma.servers.findUnique({
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                where: { id: interaction.guildId! },
+                select: { settings: true },
+            })
+        )?.settings as queries.SettingsQuery
+    ).cooldown.commands
+    if (
+        query.includes(
+            `${interaction.commandName}_${interaction.options.getSubcommand()}`
+        ) ||
+        query.includes(
+            `${
+                interaction.commandName
+            }_${interaction.options.getSubcommandGroup(
+                false
+            )}_${interaction.options.getSubcommand()}`
+        )
+    )
+        return true
+    else return false
 }
 
 function formatId(interaction: CommandInteraction) {
@@ -25,13 +45,7 @@ function formatId(interaction: CommandInteraction) {
 export async function check(interaction: CommandInteraction) {
     const cooldownId = formatId(interaction)
 
-    if (
-        whitelist(
-            interaction.commandName,
-            interaction.options.getSubcommand()
-        ) &&
-        cooldown.has(cooldownId)
-    ) {
+    if ((await whitelist(interaction)) && cooldown.has(cooldownId)) {
         await interaction.reply({
             embeds: [
                 new embedBuilder().create(
@@ -47,12 +61,10 @@ export async function check(interaction: CommandInteraction) {
     return false
 }
 
-export function create(interaction: CommandInteraction) {
+export async function create(interaction: CommandInteraction) {
     const cooldownId = formatId(interaction)
 
-    if (
-        whitelist(interaction.commandName, interaction.options.getSubcommand())
-    ) {
+    if (await whitelist(interaction)) {
         cooldown.set(cooldownId, Date.now() + shouldElapse)
         setTimeout(() => {
             cooldown.delete(cooldownId)

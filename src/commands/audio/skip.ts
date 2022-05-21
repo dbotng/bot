@@ -26,12 +26,13 @@ export async function execute(interaction: CommandInteraction) {
         )
         return
     }
-    distube.client.skip(guildId)
-    await interaction.reply({
-        embeds: [
-            new commandSuccessEmbedBuilder().create(
-                `Skipped to ${queue?.songs[0].name} by ${queue?.songs[0].uploader.name}, requested by <@!${queue?.songs[0].member?.id}>`
-            ),
-        ],
+    distube.client.skip(guildId).then(async () => {
+        await interaction.reply({
+            embeds: [
+                new commandSuccessEmbedBuilder().create(
+                    `Skipped to ${queue?.songs[0].name} by ${queue?.songs[0].uploader.name}, requested by <@!${queue?.songs[0].member?.id}>`
+                ),
+            ],
+        })
     })
 }

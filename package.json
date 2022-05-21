@@ -8,7 +8,9 @@
     "private": true,
     "main": "dist/index.js",
     "scripts": {
-        "build": "npx eslint . --ext .js,.jsx,.ts,.tsx --fix && npx prettier --write . && rimraf dist && tsc",
+        "prebuild": "npx eslint . --ext .js,.jsx,.ts,.tsx --fix && npx prettier --write .",
+        "build": "rimraf dist && tsc",
+        "postbuild": "npx copyfiles -u 1 -V copyfiles src/**/*.js dist",
         "start": "node dist/index.js",
         "deploy": "node dist/deploy.js",
         "release": "standard-version"
@@ -32,6 +34,7 @@
         "@types/node": "^17.0.23",
         "@typescript-eslint/eslint-plugin": "^5.18.0",
         "@typescript-eslint/parser": "^5.18.0",
+        "copyfiles": "^2.4.1",
         "eslint": "^8.12.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-eslint-comments": "^3.2.0",
@@ -57,6 +60,7 @@
         "erlpack": "github:discord/erlpack",
         "humanize-duration": "^3.27.1",
         "libsodium-wrappers": "^0.7.10",
+        "node-fetch": "^3.2.4",
         "utf-8-validate": "^5.0.9",
         "zlib-sync": "^0.1.7"
     }

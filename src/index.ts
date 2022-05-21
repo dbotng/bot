@@ -11,5 +11,5 @@ discordjs.client.login(process.env.token)
 distube.init()
 
 process.on('unhandledRejection', (error) => {
-    console.error('[discord.js] Unhandled promise rejection:', error)
+    console.error('[discord.js]', error)
 })

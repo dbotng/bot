@@ -29,7 +29,7 @@ export async function execute(interaction: CommandInteraction) {
         embeds: [
             new embedBuilder().create(
                 'Queue',
-                `Next 5 songs in queue (author might not be correct):\n ${musicList}`
+                `Next 5 songs in queue (author might not be correct):\n${musicList}`
             ),
         ],
     })

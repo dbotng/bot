@@ -33,7 +33,7 @@ export async function execute(interaction: CommandInteraction) {
             break
         }
         case 'radio': {
-            //await radio.execute(interaction)
+            await radio.execute(interaction)
             break
         }
         case 'pause': {
