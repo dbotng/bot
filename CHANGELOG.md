@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/Featyre/D-Bot/compare/v2.0.0-alpha.1...v2.0.0) (2022-05-21)
+
+
+### Features
+
+* **functionality:** added temp settings commandsd ([b899c90](https://github.com/Featyre/D-Bot/commit/b899c90cc388d6415a5760dcd4e6d28ab57148ac))
+* **functionality:** customizable cooldown (and refactoring) ([974293e](https://github.com/Featyre/D-Bot/commit/974293e5dee76a1ba63e32c4cc48db26ccaed266))
+
 ## [2.0.0-alpha.1](https://github.com/Featyre/D-Bot/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2022-05-17)
 
 ## [2.0.0-alpha.0](https://github.com/Featyre/D-Bot/compare/v1.0.4...v2.0.0-alpha.0) (2022-05-17)
