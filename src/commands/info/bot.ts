@@ -26,7 +26,7 @@ export async function execute(interaction: CommandInteraction) {
                     )} users and probably growing.\nBot is up for ${humanizeDuration(
                     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                     interaction.client.uptime!
-                )}. \nRunning ${process.env.version}`,
+                )}. \nRunning version ${process.env.version}`,
             },
             {
                 name: 'Creator info and links',
