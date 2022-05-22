@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.5](https://github.com/Featyre/D-Bot/compare/v2.0.4...v2.0.5) (2022-05-22)
+
+
+### Bug Fixes
+
+* added command check to replace regex check ([19c7f3c](https://github.com/Featyre/D-Bot/commit/19c7f3ce7f400b4c7bb83fb970e68ec2e2fff67d))
+
 ### [2.0.4](https://github.com/Featyre/D-Bot/compare/v2.0.3...v2.0.4) (2022-05-22)
 
 ### Bug Fixes
