@@ -18,7 +18,7 @@ export async function execute(interaction: CommandInteraction) {
             {
                 name: 'Bot Stats',
                 value: `Joined in ${
-                    interaction.client.guilds.cache.size
+                    (await interaction.client.guilds.fetch()).size
                 } servers, used by ${interaction.client.guilds.cache
                     .map((guild) => guild.memberCount)
                     .reduce(
