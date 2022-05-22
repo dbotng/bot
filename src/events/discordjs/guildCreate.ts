@@ -32,10 +32,15 @@ async function sendEmbed(channel: NonThreadGuildBasedChannel | undefined) {
     if (channel) {
         await (channel as TextChannel).send({
             embeds: [
-                new embedBuilder().create(
-                    'Thank you for inviting D-bot!',
-                    "DON'T YOU LECTURE ME WITH YOUR 30 DOLLAR HAIRCUT"
-                ),
+                new embedBuilder()
+                    .create(
+                        'Thank you for inviting D-bot!',
+                        'You can check out the commands by typing / in the textbox and mess around with the bot!'
+                    )
+                    .addField(
+                        'Any questions?',
+                        'You can always join the [Discord server](https://discord.gg/nSdQyfZd3s) where you can ask questions (and chat with other people) and also the [Github repo](https://github.com/Featyre/D-Bot) for submitting an issue!'
+                    ),
             ],
         })
     }
