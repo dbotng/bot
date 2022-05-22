@@ -4,46 +4,40 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [2.0.4](https://github.com/Featyre/D-Bot/compare/v2.0.3...v2.0.4) (2022-05-22)
 
-
 ### Bug Fixes
 
-* forgot to change first join embed ([0f82080](https://github.com/Featyre/D-Bot/commit/0f8208057a5e4d264d5e78ac05775164728a8643))
+-   forgot to change first join embed ([0f82080](https://github.com/Featyre/D-Bot/commit/0f8208057a5e4d264d5e78ac05775164728a8643))
 
 ### [2.0.3](https://github.com/Featyre/D-Bot/compare/v2.0.2...v2.0.3) (2022-05-22)
 
-
 ### Features
 
-* **code:** add segfault handler ([1c66428](https://github.com/Featyre/D-Bot/commit/1c6642853c4d2350582c17d079f5a3d9cf941d06))
-
+-   **code:** add segfault handler ([1c66428](https://github.com/Featyre/D-Bot/commit/1c6642853c4d2350582c17d079f5a3d9cf941d06))
 
 ### Bug Fixes
 
-* add version text in status ([fed67fd](https://github.com/Featyre/D-Bot/commit/fed67fd05cf69557d78cb513104dce623d590766))
-* change binaryTarget to support linux ([4c273fd](https://github.com/Featyre/D-Bot/commit/4c273fd4b4324e78f92f8e8f08f740c86e60c6bb))
-* use package.json version instead of defined in .env ([c168a71](https://github.com/Featyre/D-Bot/commit/c168a714af7b55f68535d35e59b381f428742475))
+-   add version text in status ([fed67fd](https://github.com/Featyre/D-Bot/commit/fed67fd05cf69557d78cb513104dce623d590766))
+-   change binaryTarget to support linux ([4c273fd](https://github.com/Featyre/D-Bot/commit/4c273fd4b4324e78f92f8e8f08f740c86e60c6bb))
+-   use package.json version instead of defined in .env ([c168a71](https://github.com/Featyre/D-Bot/commit/c168a714af7b55f68535d35e59b381f428742475))
 
 ### [2.0.2](https://github.com/Featyre/D-Bot/compare/v2.0.1...v2.0.2) (2022-05-21)
 
-
 ### Bug Fixes
 
-* added local clear command to global ([46e0d8b](https://github.com/Featyre/D-Bot/commit/46e0d8b3d04b75eeaed24d6b41ebf36da0b93040))
+-   added local clear command to global ([46e0d8b](https://github.com/Featyre/D-Bot/commit/46e0d8b3d04b75eeaed24d6b41ebf36da0b93040))
 
 ### [2.0.1](https://github.com/Featyre/D-Bot/compare/v2.0.0...v2.0.1) (2022-05-21)
 
-
 ### Bug Fixes
 
-* switch deploy local and global ([8f685c9](https://github.com/Featyre/D-Bot/commit/8f685c96bba08566a63357006fcf3fedad44c00e))
+-   switch deploy local and global ([8f685c9](https://github.com/Featyre/D-Bot/commit/8f685c96bba08566a63357006fcf3fedad44c00e))
 
 ## [2.0.0](https://github.com/Featyre/D-Bot/compare/v2.0.0-alpha.1...v2.0.0) (2022-05-21)
 
-
 ### Features
 
-* **functionality:** added temp settings commandsd ([b899c90](https://github.com/Featyre/D-Bot/commit/b899c90cc388d6415a5760dcd4e6d28ab57148ac))
-* **functionality:** customizable cooldown (and refactoring) ([974293e](https://github.com/Featyre/D-Bot/commit/974293e5dee76a1ba63e32c4cc48db26ccaed266))
+-   **functionality:** added temp settings commandsd ([b899c90](https://github.com/Featyre/D-Bot/commit/b899c90cc388d6415a5760dcd4e6d28ab57148ac))
+-   **functionality:** customizable cooldown (and refactoring) ([974293e](https://github.com/Featyre/D-Bot/commit/974293e5dee76a1ba63e32c4cc48db26ccaed266))
 
 ## [2.0.0-alpha.1](https://github.com/Featyre/D-Bot/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2022-05-17)
 

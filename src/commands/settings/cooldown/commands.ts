@@ -22,22 +22,38 @@ function arg1(option: SlashCommandStringOption) {
         .setRequired(true)
 }
 
+const allCommands: string[] = []
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function mapCommands(command: any) {
+    for (const subcommand of command.data.options) {
+        if (subcommand.options.some(Boolean)) {
+            for (const subCommandOptions of subcommand.options) {
+                if (!subCommandOptions.type) {
+                    allCommands.push(
+                        `${command.data.name}_${subcommand.name}_${subCommandOptions.name}`
+                    )
+                }
+            }
+        } else {
+            allCommands.push(`${command.data.name}_${subcommand.name}`)
+        }
+    }
+}
+
 export async function execute(interaction: CommandInteraction) {
     const arg1 = interaction.options.getString('command')
     /* eslint-disable @typescript-eslint/no-non-null-assertion */
-    if (
-        !/[a-z]+_[a-z]+[_]?[a-z]+/g.test(arg1!) ||
-        /[a-z]+_[a-z]+_[a-z]+_[_a-z]*/g.test(arg1!)
-    ) {
+
+    interaction.client.commands.each(mapCommands)
+
+    if (!allCommands.includes(arg1!)) {
         await interaction.reply({
-            embeds: [
-                new userErrorEmbedBuilder().create(
-                    'Input command not in format, check errors and try again.'
-                ),
-            ],
+            embeds: [new userErrorEmbedBuilder().create('Command not found.')],
         })
         return
     }
+
     /* eslint-enable */
 
     const query = (
