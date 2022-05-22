@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.3](https://github.com/Featyre/D-Bot/compare/v2.0.2...v2.0.3) (2022-05-22)
+
+
+### Features
+
+* **code:** add segfault handler ([1c66428](https://github.com/Featyre/D-Bot/commit/1c6642853c4d2350582c17d079f5a3d9cf941d06))
+
+
+### Bug Fixes
+
+* add version text in status ([fed67fd](https://github.com/Featyre/D-Bot/commit/fed67fd05cf69557d78cb513104dce623d590766))
+* change binaryTarget to support linux ([4c273fd](https://github.com/Featyre/D-Bot/commit/4c273fd4b4324e78f92f8e8f08f740c86e60c6bb))
+* use package.json version instead of defined in .env ([c168a71](https://github.com/Featyre/D-Bot/commit/c168a714af7b55f68535d35e59b381f428742475))
+
 ### [2.0.2](https://github.com/Featyre/D-Bot/compare/v2.0.1...v2.0.2) (2022-05-21)
 
 
