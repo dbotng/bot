@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.4](https://github.com/Featyre/D-Bot/compare/v2.0.3...v2.0.4) (2022-05-22)
+
+
+### Bug Fixes
+
+* forgot to change first join embed ([0f82080](https://github.com/Featyre/D-Bot/commit/0f8208057a5e4d264d5e78ac05775164728a8643))
+
 ### [2.0.3](https://github.com/Featyre/D-Bot/compare/v2.0.2...v2.0.3) (2022-05-22)
 
 
