@@ -3,7 +3,7 @@ import { CommandInteraction } from 'discord.js'
 import embedBuilder from '../../builders/embedBuilder'
 import * as distube from '../../clients/distube'
 
-import * as voice from '../../common/voice'
+import * as voice from '../../util/voice'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('queue')

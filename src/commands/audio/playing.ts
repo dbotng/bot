@@ -3,10 +3,10 @@ import { CommandInteraction } from 'discord.js'
 import embedBuilder from '../../builders/embedBuilder'
 import * as distube from '../../clients/distube'
 
-import { fetch } from '../../common/fetch'
-import getEnumKeyByEnumValue from '../../common/getEnumKeyByEnumValue'
+import { fetch } from '../../util/fetch'
+import getEnumKeyByEnumValue from '../../util/getEnumKeyByEnumValue'
 
-import * as voice from '../../common/voice'
+import * as voice from '../../util/voice'
 import * as radio from '../../types/radio'
 
 export const data = new SlashCommandSubcommandBuilder()

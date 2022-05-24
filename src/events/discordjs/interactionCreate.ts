@@ -1,5 +1,5 @@
 import { Interaction } from 'discord.js'
-import * as cooldown from '../../common/cooldown'
+import * as cooldown from '../../util/cooldown'
 import commandErrorEmbedBuilder from '../../builders/commandErrorEmbedBuilder'
 
 export const name = 'interactionCreate'

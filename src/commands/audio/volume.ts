@@ -6,7 +6,7 @@ import { CommandInteraction } from 'discord.js'
 import commandSuccessEmbedBuilder from '../../builders/commandSuccessEmbedBuilder'
 import * as distube from '../../clients/distube'
 
-import * as voice from '../../common/voice'
+import * as voice from '../../util/voice'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('volume')

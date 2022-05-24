@@ -5,7 +5,7 @@ import {
 import { CommandInteraction, GuildMember } from 'discord.js'
 import * as distube from '../../clients/distube'
 
-import * as voice from '../../common/voice'
+import * as voice from '../../util/voice'
 import * as radio from '../../types/radio'
 
 export const data = new SlashCommandSubcommandBuilder()

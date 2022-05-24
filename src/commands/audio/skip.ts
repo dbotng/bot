@@ -4,7 +4,7 @@ import commandSuccessEmbedBuilder from '../../builders/commandSuccessEmbedBuilde
 import userErrorEmbedBuilder from '../../builders/userErrorEmbedBuilder'
 import * as distube from '../../clients/distube'
 
-import * as voice from '../../common/voice'
+import * as voice from '../../util/voice'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('skip')
