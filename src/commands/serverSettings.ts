@@ -11,6 +11,7 @@ export const data = new SlashCommandBuilder()
     .addSubcommandGroup(cooldown.data)
 
 export async function execute(interaction: CommandInteraction) {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     switch (interaction.options.getSubcommand()) {
         case 'get': {
             await get.execute(interaction)

@@ -28,19 +28,16 @@ export async function execute(interaction: CommandInteraction) {
     const member = interaction.member as GuildMember
     if (await voice.userCheck(interaction, queue)) return
     if (queue) distube.client.stop(guildId)
-    distube.client
-        .play(
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            member.voice.channel!,
-            `https://stream01.ungrounded.net/${interaction.options.getString(
-                'station'
-            )}`,
-            {
-                member: member,
-            }
-        )
-        .then(async () => {
-            await interaction.deferReply()
-        })
+    await interaction.deferReply()
+    distube.client.play(
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        member.voice.channel!,
+        `https://stream01.ungrounded.net/${interaction.options.getString(
+            'station'
+        )}`,
+        {
+            member: member,
+        }
+    )
     global.musicQueues.set(`${interaction.guildId}_${member.id}`, interaction)
 }

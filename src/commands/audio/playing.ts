@@ -2,8 +2,8 @@ import { SlashCommandSubcommandBuilder } from '@discordjs/builders'
 import { CommandInteraction } from 'discord.js'
 import embedBuilder from '../../builders/embedBuilder'
 import * as distube from '../../clients/distube'
+import phin from 'phin'
 
-import { fetch } from '../../util/fetch'
 import getEnumKeyByEnumValue from '../../util/getEnumKeyByEnumValue'
 
 import * as voice from '../../util/voice'
@@ -27,11 +27,12 @@ export async function execute(interaction: CommandInteraction) {
             ''
         )
         const songInfo = (
-            (await (
-                await fetch(
-                    'https://stream01.ungrounded.net/status-json-custom.xsl'
-                )
-            ).json()) as radio.status
+            (
+                await phin({
+                    url: 'https://stream01.ungrounded.net/status-json-custom.xsl',
+                    parse: 'json',
+                })
+            ).body as radio.status
         ).mounts[`/${station}`]
         const url = songInfo.current_song
             .match(/\((https:\/\/).+\)/g)?.[0]

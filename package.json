@@ -58,7 +58,7 @@
         "erlpack": "github:discord/erlpack",
         "humanize-duration": "^3.27.1",
         "libsodium-wrappers": "^0.7.10",
-        "node-fetch": "^3.2.4",
+        "phin": "^3.6.1",
         "segfault-handler": "^1.3.0",
         "utf-8-validate": "^5.0.9",
         "zlib-sync": "^0.1.7"
