@@ -1,6 +1,6 @@
 {
     "name": "d-bot",
-    "version": "2.0.5",
+    "version": "2022.2.6",
     "description": "Awesome Newgrounds bot",
     "private": true,
     "main": "dist/index.js",
@@ -10,7 +10,8 @@
         "postbuild": "npx copyfiles -u 1 -V copyfiles src/**/*.js dist",
         "start": "node dist/index.js",
         "deploy": "node dist/deploy.js",
-        "release": "standard-version"
+        "prerelease": "bumpver update -n --$npm_config_component",
+        "release": "standard-version --skip.bump"
     },
     "repository": {
         "type": "git",

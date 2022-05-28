@@ -1,0 +1,17 @@
+# bumpver.toml in project root
+
+[bumpver]
+current_version = "2022.2.6"
+version_pattern = "YYYY.MINOR.PATCH[-TAG]"
+commit_message = "chore(release): {new_version}"
+commit = false
+tag = false
+push = false
+
+[bumpver.file_patterns]
+"package.json" = [
+    '"version": "{version}"',
+]
+"bumpver.toml" = [
+    'current_version = "{version}"',
+]
