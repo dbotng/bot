@@ -1,6 +1,6 @@
 {
     "name": "d-bot",
-    "version": "2022.2.7",
+    "version": "2022.2.8",
     "description": "Awesome Newgrounds bot",
     "private": true,
     "main": "dist/index.js",
