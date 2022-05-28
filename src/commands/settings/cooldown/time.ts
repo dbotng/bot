@@ -5,9 +5,9 @@ import {
 import prisma from '../../../clients/prisma'
 import { CommandInteraction } from 'discord.js'
 
-import * as queries from '../../../types/queries'
+import * as queries from '../../../types/prismaQueries'
 import { Prisma } from '@prisma/client'
-import commandSuccessEmbedBuilder from '../../../builders/commandSuccessEmbedBuilder'
+import commandSuccessEmbedBuilder from '../../../builders/embeds/commandSuccessEmbedBuilder'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('time')

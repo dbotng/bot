@@ -1,6 +1,6 @@
 import { CommandInteraction } from 'discord.js'
 import { Queue, Song } from 'distube'
-import commandSuccessEmbedBuilder from '../../builders/commandSuccessEmbedBuilder'
+import commandSuccessEmbedBuilder from '../../builders/embeds/commandSuccessEmbedBuilder'
 
 export const name = 'addSong'
 

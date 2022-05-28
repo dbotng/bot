@@ -3,7 +3,7 @@ import { CommandInteraction } from 'discord.js'
 
 import * as get from './settings/get'
 import * as cooldown from './settings/cooldown'
-import userErrorEmbedBuilder from '../builders/userErrorEmbedBuilder'
+import userErrorEmbedBuilder from '../builders/embeds/userErrorEmbedBuilder'
 
 export const data = new SlashCommandBuilder()
     .setName('settings')

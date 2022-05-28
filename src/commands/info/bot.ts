@@ -1,7 +1,7 @@
 import { SlashCommandSubcommandBuilder } from '@discordjs/builders'
 import { CommandInteraction } from 'discord.js'
 import humanizeDuration from 'humanize-duration'
-import embedBuilder from '../../builders/embedBuilder'
+import embedBuilder from '../../builders/embeds/embedBuilder'
 import 'dotenv/config'
 
 export const data = new SlashCommandSubcommandBuilder()

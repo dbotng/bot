@@ -3,8 +3,8 @@ import {
     SlashCommandStringOption,
     SlashCommandSubcommandBuilder,
 } from '@discordjs/builders'
-import commandSuccessEmbedBuilder from '../../builders/commandSuccessEmbedBuilder'
-import userErrorEmbedBuilder from '../../builders/userErrorEmbedBuilder'
+import commandSuccessEmbedBuilder from '../../builders/embeds/commandSuccessEmbedBuilder'
+import userErrorEmbedBuilder from '../../builders/embeds/userErrorEmbedBuilder'
 import * as distube from '../../clients/distube'
 import 'dotenv/config'
 

@@ -4,11 +4,11 @@ import {
 } from '@discordjs/builders'
 import { Prisma } from '@prisma/client'
 import { CommandInteraction } from 'discord.js'
-import commandSuccessEmbedBuilder from '../../../builders/commandSuccessEmbedBuilder'
-import userErrorEmbedBuilder from '../../../builders/userErrorEmbedBuilder'
+import commandSuccessEmbedBuilder from '../../../builders/embeds/commandSuccessEmbedBuilder'
+import userErrorEmbedBuilder from '../../../builders/embeds/userErrorEmbedBuilder'
 import prisma from '../../../clients/prisma'
 
-import * as queries from '../../../types/queries'
+import * as queries from '../../../types/prismaQueries'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('commands')

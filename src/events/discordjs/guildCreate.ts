@@ -1,6 +1,6 @@
 import { PermissionFlagsBits } from 'discord-api-types/v10'
 import { Guild, NonThreadGuildBasedChannel, TextChannel } from 'discord.js'
-import embedBuilder from '../../builders/embedBuilder'
+import embedBuilder from '../../builders/embeds/embedBuilder'
 import prisma from '../../clients/prisma'
 
 export const name = 'guildCreate'

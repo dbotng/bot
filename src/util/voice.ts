@@ -1,6 +1,6 @@
 import { CommandInteraction, GuildMember } from 'discord.js'
 import { Queue } from 'distube'
-import userErrorEmbedBuilder from '../builders/userErrorEmbedBuilder'
+import userErrorEmbedBuilder from '../builders/embeds/userErrorEmbedBuilder'
 
 export async function userCheck(
     interaction: CommandInteraction,

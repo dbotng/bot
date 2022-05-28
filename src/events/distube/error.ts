@@ -1,5 +1,5 @@
 import { TextChannel } from 'discord.js'
-import commandErrorEmbedBuilder from '../../builders/commandErrorEmbedBuilder'
+import commandErrorEmbedBuilder from '../../builders/embeds/commandErrorEmbedBuilder'
 
 export const name = 'error'
 

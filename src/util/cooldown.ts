@@ -1,13 +1,13 @@
 import { CommandInteraction, GuildMember } from 'discord.js'
 import humanizeDuration from 'humanize-duration'
-import embedBuilder from '../builders/embedBuilder'
+import embedBuilder from '../builders/embeds/embedBuilder'
 
 const cooldown = global.cooldown
 
 const shouldElapse = 10000
 
 import prisma from '../clients/prisma'
-import * as queries from '../types/queries'
+import * as queries from '../types/prismaQueries'
 
 async function whitelist(interaction: CommandInteraction) {
     //TODO: Database default/custom options

@@ -1,8 +1,8 @@
 import { SlashCommandSubcommandBuilder } from '@discordjs/builders'
 import { CommandInteraction } from 'discord.js'
-import embedBuilder from '../../builders/embedBuilder'
+import embedBuilder from '../../builders/embeds/embedBuilder'
 import prisma from '../../clients/prisma'
-import * as queries from '../../types/queries'
+import * as queries from '../../types/prismaQueries'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('get')

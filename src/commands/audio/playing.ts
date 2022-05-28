@@ -1,6 +1,6 @@
 import { SlashCommandSubcommandBuilder } from '@discordjs/builders'
 import { CommandInteraction } from 'discord.js'
-import embedBuilder from '../../builders/embedBuilder'
+import embedBuilder from '../../builders/embeds/embedBuilder'
 import * as distube from '../../clients/distube'
 import phin from 'phin'
 

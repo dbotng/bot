@@ -1,6 +1,6 @@
 import { SlashCommandSubcommandBuilder } from '@discordjs/builders'
 import { CommandInteraction } from 'discord.js'
-import commandSuccessEmbedBuilder from '../../builders/commandSuccessEmbedBuilder'
+import commandSuccessEmbedBuilder from '../../builders/embeds/commandSuccessEmbedBuilder'
 import * as distube from '../../clients/distube'
 
 import * as voice from '../../util/voice'
