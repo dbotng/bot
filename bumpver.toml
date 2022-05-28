@@ -4,7 +4,7 @@
 current_version = "2022.2.7"
 version_pattern = "YYYY.MINOR.PATCH[-TAG]"
 commit_message = "chore(release): {new_version}"
-commit = false
+commit = true
 tag = false
 push = false
 
