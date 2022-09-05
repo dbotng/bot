@@ -7,3 +7,22 @@ export type SettingsQuery = {
         commands: string[]
     }
 }
+
+export type DiscordUserQuery = {
+    id: bigint
+    username: string
+    discriminator: string
+    newgroundsUser: NewgroundsUserQuery | undefined
+}
+
+export type NewgroundsUserQuery = {
+    id: bigint
+    name: string
+    supporter: boolean
+    icons: {
+        small: string
+        large: string
+        medium: string
+    }
+    discordUser: NewgroundsUserQuery | undefined
+}

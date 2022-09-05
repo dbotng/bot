@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
   binaryTargets = ["native", "debian-openssl-1.1.x"]
 }
 
@@ -9,20 +9,21 @@ datasource db {
 }
 
 model servers {
-  id       String @id
+  id       BigInt @id
   settings Json   @default("{\"cooldown\": {\"time\": 5, \"commands\": [\"audio_play\", \"audio_leave\"]}}")
 }
 
-model user {
-  id         String       @id
-  settings   Json
-  newgrounds newgrounds[]
+model discordUser {
+  id             BigInt           @id
+  username       String
+  discriminator  String
+  newgroundsUser newgroundsUser[]
 }
 
-model newgrounds {
-  id            Int     @id
-  username      String  @unique
-  supporter     Boolean
-  discordUserID String
-  discordUser   user    @relation(fields: [discordUserID], references: [id])
+model newgroundsUser {
+  id          BigInt        @id
+  name        String        @unique
+  supporter   Boolean
+  icons       Json
+  discordUser discordUser[]
 }

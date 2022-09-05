@@ -19,26 +19,22 @@ export async function execute(interaction: CommandInteraction) {
     const queue = distube.client.getQueue(guildId)
     if (await voice.userCheck(interaction, queue)) return
     if (
-        queue?.songs[0].streamURL?.includes('https://stream01.ungrounded.net/')
+        queue?.songs[0].streamURL?.includes('https://stream.newgroundsradio.com/')
     ) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const station = queue?.songs[0].streamURL.replace(
-            'https://stream01.ungrounded.net/',
-            ''
-        )
+
         const songInfo = (
             (
                 await phin({
-                    url: 'https://stream01.ungrounded.net/status-json-custom.xsl',
+                    url: 'https://api.newgroundsradio.com/v1/status',
                     parse: 'json',
                 })
             ).body as radio.status
-        ).mounts[`/${station}`]
-        const url = songInfo.current_song
+        ).data
+        const url = songInfo.title
             .match(/\((https:\/\/).+\)/g)?.[0]
             .slice(1, -1)
-        const title = songInfo.current_song.match(/- .+ /g)?.[0].slice(2, -1)
-        const author = songInfo.current_song.match(/.+ -/g)?.[0].slice(0, -2)
+        const title = songInfo.title.match(/- .+ /g)?.[0].slice(2, -1)
+        const author = songInfo.title.match(/.+ -/g)?.[0].slice(0, -2)
         const thumbnail = `https://aicon.ngfiles.com/${url
             ?.match(/[0-9]+/g)?.[0]
             .slice(0, -3)}/${url?.match(/[0-9]+/g)?.[0]}.png`
@@ -48,10 +44,7 @@ export async function execute(interaction: CommandInteraction) {
                 new embedBuilder()
                     .create(
                         'Playing now',
-                        `[${title}](${url}) by [${author}](https://${author}.newgrounds.com) at ${getEnumKeyByEnumValue(
-                            radio.stations,
-                            station
-                        )}`
+                        `[${title}](${url}) by [${author}](https://${author}.newgrounds.com) at Newgrounds Radio`
                     )
                     .addField(
                         'Requested by',

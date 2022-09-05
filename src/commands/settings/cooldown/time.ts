@@ -25,7 +25,7 @@ export async function execute(interaction: CommandInteraction) {
     const query = (
         await prisma.servers.findUnique({
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            where: { id: interaction.guildId! },
+            where: { id: BigInt(interaction.guildId!) },
             select: { settings: true },
         })
     )?.settings
@@ -37,7 +37,7 @@ export async function execute(interaction: CommandInteraction) {
     prisma.servers
         .update({
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            where: { id: interaction.guildId! },
+            where: { id: BigInt(interaction.guildId!) },
             data: { settings: query as Prisma.InputJsonValue },
         })
         .then(async () => {

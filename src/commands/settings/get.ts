@@ -11,7 +11,7 @@ export const data = new SlashCommandSubcommandBuilder()
 export async function execute(interaction: CommandInteraction): Promise<void> {
     const query = await prisma.servers.findUnique({
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        where: { id: interaction.guildId! },
+        where: { id: BigInt(interaction.guildId!) },
         select: { settings: true },
     })
     await interaction.reply({

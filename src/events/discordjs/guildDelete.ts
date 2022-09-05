@@ -8,7 +8,8 @@ export const once = false
 export async function execute(guild: Guild) {
     await prisma.servers.delete({
         where: {
-            id: guild.id,
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            id: BigInt(guild.id!),
         },
     })
 }

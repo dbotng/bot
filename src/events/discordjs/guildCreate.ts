@@ -10,7 +10,8 @@ export const once = false
 export async function execute(guild: Guild) {
     await prisma.servers.create({
         data: {
-            id: guild.id,
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            id: BigInt(guild.id!),
         },
     })
     guild.channels.fetch().then((channels) => {

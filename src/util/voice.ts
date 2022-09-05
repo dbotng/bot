@@ -52,7 +52,7 @@ export async function songCheck(
 ) {
     if (
         queue instanceof Queue &&
-        queue.songs[0].streamURL?.includes('https://stream01.ungrounded.net/')
+        queue.songs[0].streamURL?.includes('https://stream.newgroundsradio.com/')
     ) {
         await interaction.reply({
             embeds: [

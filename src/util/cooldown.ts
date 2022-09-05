@@ -15,7 +15,7 @@ async function whitelist(interaction: CommandInteraction) {
         (
             await prisma.servers.findUnique({
                 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                where: { id: interaction.guildId! },
+                where: { id: BigInt(interaction.guildId!) },
                 select: { settings: true },
             })
         )?.settings as queries.SettingsQuery

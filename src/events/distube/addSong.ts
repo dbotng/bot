@@ -10,11 +10,11 @@ export async function execute(_: Queue, song: Song) {
     const interaction: CommandInteraction = global.musicQueues.get(
         `${song.member?.guild.id}_${song.member?.id}`
     )
-    if (song.streamURL?.includes('https://stream01.ungrounded.net/')) {
+    if (song.streamURL?.includes('https://stream.newgroundsradio.com/')) {
         await interaction.editReply({
             embeds: [
                 new commandSuccessEmbedBuilder().create(
-                    `Radio selected is playing.`
+                    `Newgrounds Radio is now playing.`
                 ),
             ],
         })

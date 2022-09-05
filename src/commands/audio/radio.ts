@@ -1,25 +1,12 @@
-import {
-    SlashCommandStringOption,
-    SlashCommandSubcommandBuilder,
-} from '@discordjs/builders'
+import { SlashCommandSubcommandBuilder } from '@discordjs/builders'
 import { CommandInteraction, GuildMember } from 'discord.js'
 import * as distube from '../../clients/distube'
 
 import * as voice from '../../util/voice'
-import * as radio from '../../types/radio'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('radio')
     .setDescription('Play from Newgrounds radio')
-    .addStringOption(arg1)
-
-function arg1(option: SlashCommandStringOption) {
-    return option
-        .setName('station')
-        .setDescription('Newgrounds Radio station')
-        .addChoices(Object.entries(radio.stations))
-        .setRequired(true)
-}
 
 export async function execute(interaction: CommandInteraction) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -32,9 +19,7 @@ export async function execute(interaction: CommandInteraction) {
     distube.client.play(
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         member.voice.channel!,
-        `https://stream01.ungrounded.net/${interaction.options.getString(
-            'station'
-        )}`,
+        'https://stream.newgroundsradio.com/radio.mp3',
         {
             member: member,
         }
