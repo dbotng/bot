@@ -1,16 +1,15 @@
-import { SlashCommandBuilder } from '@discordjs/builders'
-import { CommandInteraction } from 'discord.js'
+import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js'
 
-import * as play from './audio/play'
-import * as radio from './audio/radio'
-import * as pause from './audio/pause'
-import * as skip from './audio/skip'
-import * as stop from './audio/stop'
-import * as leave from './audio/leave'
-import * as volume from './audio/volume'
-import * as repeat from './audio/repeat'
-import * as playing from './audio/playing'
-import * as queue from './audio/queue'
+import * as play from '@d-bot/commands/audio/play.js'
+import * as radio from '@d-bot/commands/audio/radio.js'
+import * as pause from '@d-bot/commands/audio/pause.js'
+import * as skip from '@d-bot/commands/audio/skip.js'
+import * as stop from '@d-bot/commands/audio/stop.js'
+import * as leave from '@d-bot/commands/audio/leave.js'
+import * as volume from '@d-bot/commands/audio/volume.js'
+import * as repeat from '@d-bot/commands/audio/repeat.js'
+import * as playing from '@d-bot/commands/audio/playing.js'
+import * as queue from '@d-bot/commands/audio/queue.js'
 
 export const data = new SlashCommandBuilder()
     .setName('audio')
@@ -26,7 +25,7 @@ export const data = new SlashCommandBuilder()
     .addSubcommand(playing.data)
     .addSubcommand(queue.data)
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
     switch (interaction.options.getSubcommand()) {
         case 'play': {
             await play.execute(interaction)

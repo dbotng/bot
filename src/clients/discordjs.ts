@@ -1,11 +1,11 @@
-import { Client, Collection, Intents } from 'discord.js'
+import { Client, Collection, GatewayIntentBits } from 'discord.js'
 import fs from 'fs'
 
 export const client = new Client({
-    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_VOICE_STATES],
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates],
 })
 
-export function init() {
+export async function init() {
     client.commands = new Collection()
 
     const commandFiles = fs
@@ -14,7 +14,7 @@ export function init() {
 
     for (const file of commandFiles) {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
-        const command = require(`${__dirname}/../commands/${file}`)
+        const command = await import(`${__dirname}/../commands/${file}`)
         client.commands.set(command.data.name, command)
     }
 
@@ -24,7 +24,7 @@ export function init() {
 
     for (const file of eventFiles) {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
-        const event = require(`${__dirname}/../events/discordjs/${file}`)
+        const event = await import(`${__dirname}/../events/discordjs/${file}`)
         if (event.once) {
             client.once(event.name, (...args) => event.execute(...args))
         } else {

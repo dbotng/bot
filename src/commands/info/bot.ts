@@ -1,14 +1,13 @@
-import { SlashCommandSubcommandBuilder } from '@discordjs/builders'
-import { CommandInteraction } from 'discord.js'
+import { ChatInputCommandInteraction, SlashCommandSubcommandBuilder } from 'discord.js'
 import humanizeDuration from 'humanize-duration'
-import embedBuilder from '../../builders/embeds/embedBuilder'
+import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
 import 'dotenv/config'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('bot')
     .setDescription('General bot information')
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
     const embed = new embedBuilder()
         .create(
             'Bot information',

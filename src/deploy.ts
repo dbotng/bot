@@ -10,12 +10,12 @@ const commandFiles = fs
 
 for (const file of commandFiles) {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const command = require(`${__dirname}/commands/${file}`)
+    const command = await import(`${__dirname}/commands/${file}`)
     commands.push(command.data.toJSON())
 }
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-const rest = new REST({ version: '9' }).setToken(process.env.token!)
+const rest = new REST({ version: '10' }).setToken(process.env.token!)
 
 if (process.env.environment == 'dev') {
     /* eslint-disable @typescript-eslint/no-non-null-assertion */

@@ -1,16 +1,16 @@
 import {
+    ChatInputCommandInteraction,
     SlashCommandStringOption,
     SlashCommandSubcommandBuilder,
     SlashCommandUserOption,
-} from '@discordjs/builders'
-import { CommandInteraction } from 'discord.js'
-import embedBuilder from '../../builders/embeds/embedBuilder'
-import userErrorEmbedBuilder from '../../builders/embeds/userErrorEmbedBuilder'
-import prisma from '../../clients/prisma'
+} from 'discord.js'
+import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
+import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
+import prisma from '@d-bot/clients/prisma.js'
 import {
     DiscordUserQuery,
     NewgroundsUserQuery,
-} from '../../types/prismaQueries'
+} from '@d-bot/types/prismaQueries.js'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('fetch')
@@ -32,7 +32,7 @@ function arg2(option: SlashCommandUserOption) {
         .setRequired(false)
 }
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
     if (
         interaction.options.getString('username') == null &&
         interaction.options.getUser('user') == null

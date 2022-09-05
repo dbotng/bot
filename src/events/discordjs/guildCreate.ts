@@ -1,7 +1,7 @@
-import { PermissionFlagsBits } from 'discord-api-types/v10'
+import { ChannelType, PermissionFlagsBits } from 'discord-api-types/v10'
 import { Guild, NonThreadGuildBasedChannel, TextChannel } from 'discord.js'
-import embedBuilder from '../../builders/embeds/embedBuilder'
-import prisma from '../../clients/prisma'
+import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
+import prisma from '@d-bot/clients/prisma.js'
 
 export const name = 'guildCreate'
 
@@ -23,9 +23,9 @@ function channelFilter(channel: NonThreadGuildBasedChannel) {
     return (
         channel
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            .permissionsFor(channel.guild.me!, false)
+            .permissionsFor(channel.guild.members.me!, false)
             .has(PermissionFlagsBits.SendMessages) &&
-        channel.type == 'GUILD_TEXT'
+        channel.type == ChannelType.GuildText
     )
 }
 

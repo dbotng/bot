@@ -1,13 +1,13 @@
-import { CommandInteraction } from 'discord.js'
+import { ChatInputCommandInteraction } from 'discord.js'
 import { Queue, Song } from 'distube'
-import commandSuccessEmbedBuilder from '../../builders/embeds/commandSuccessEmbedBuilder'
+import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
 
 export const name = 'addSong'
 
 export const once = false
 
 export async function execute(_: Queue, song: Song) {
-    const interaction: CommandInteraction = global.musicQueues.get(
+    const interaction: ChatInputCommandInteraction = global.musicQueues.get(
         `${song.member?.guild.id}_${song.member?.id}`
     )
     if (song.streamURL?.includes('https://stream.newgroundsradio.com/')) {

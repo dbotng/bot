@@ -1,13 +1,9 @@
-import {
-    SlashCommandNumberOption,
-    SlashCommandSubcommandBuilder,
-} from '@discordjs/builders'
-import prisma from '../../../clients/prisma'
-import { CommandInteraction } from 'discord.js'
+import prisma from '@d-bot/clients/prisma.js'
+import { ChatInputCommandInteraction, SlashCommandNumberOption, SlashCommandSubcommandBuilder, } from 'discord.js'
 
-import * as queries from '../../../types/prismaQueries'
+import * as queries from '@d-bot/types/prismaQueries.js'
 import { Prisma } from '@prisma/client'
-import commandSuccessEmbedBuilder from '../../../builders/embeds/commandSuccessEmbedBuilder'
+import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('time')
@@ -21,7 +17,7 @@ function arg1(option: SlashCommandNumberOption) {
         .setRequired(true)
 }
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
     const query = (
         await prisma.servers.findUnique({
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

@@ -1,15 +1,19 @@
 {
     "compilerOptions": {
-        "target": "esnext",
-        "module": "CommonJS",
+        "target": "ESNext",
+        "module": "NodeNext",
         "rootDir": "./src",
         "outDir": "./dist",
+        "baseUrl": "./src",
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
-        "allowJs": true
+        "allowJs": true,
+        "paths": {
+            "@d-bot/*": ["*"]
+        }
     },
     "exclude": ["node_modules", "dist"]
 }

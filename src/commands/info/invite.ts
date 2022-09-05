@@ -1,12 +1,11 @@
-import { SlashCommandSubcommandBuilder } from '@discordjs/builders'
-import { CommandInteraction } from 'discord.js'
-import embedBuilder from '../../builders/embeds/embedBuilder'
+import { ChatInputCommandInteraction, SlashCommandSubcommandBuilder } from 'discord.js'
+import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('invite')
     .setDescription('Invitation instructions')
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
     await interaction.reply({
         embeds: [
             new embedBuilder()

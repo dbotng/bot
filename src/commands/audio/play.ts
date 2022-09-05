@@ -1,14 +1,10 @@
-import { CommandInteraction, GuildMember } from 'discord.js'
-import {
-    SlashCommandStringOption,
-    SlashCommandSubcommandBuilder,
-} from '@discordjs/builders'
-import commandSuccessEmbedBuilder from '../../builders/embeds/commandSuccessEmbedBuilder'
-import userErrorEmbedBuilder from '../../builders/embeds/userErrorEmbedBuilder'
-import * as distube from '../../clients/distube'
+import { ChatInputCommandInteraction, GuildMember, SlashCommandStringOption, SlashCommandSubcommandBuilder } from 'discord.js'
+import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
+import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
+import * as distube from '@d-bot/clients/distube.js'
 import 'dotenv/config'
 
-import * as voice from '../../util/voice'
+import * as voice from '@d-bot/util/voice.js'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('play')
@@ -19,7 +15,7 @@ function arg1(option: SlashCommandStringOption) {
     return option.setName('link').setDescription('Newgrounds audio link')
 }
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const guildId = interaction.guildId!
     const queue = distube.client.getQueue(guildId)
@@ -46,7 +42,7 @@ export async function execute(interaction: CommandInteraction) {
             ],
         })
     } else if (
-        queue?.songs[0].streamURL?.includes('https://stream01.ungrounded.net/')
+        queue?.songs[0].streamURL?.includes('https://stream.newgroundsradio.com/')
     ) {
         distube.client.stop(guildId)
     } else {

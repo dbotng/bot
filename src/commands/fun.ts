@@ -1,14 +1,13 @@
-import { SlashCommandBuilder } from '@discordjs/builders'
-import { CommandInteraction } from 'discord.js'
+import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js'
 
-import * as echo from './fun/echo'
+import * as echo from '@d-bot/commands/fun/echo.js'
 
 export const data = new SlashCommandBuilder()
     .setName('fun')
     .setDescription('Fun commands')
     .addSubcommand(echo.data)
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
     switch (interaction.options.getSubcommand()) {
         case 'echo': {
             await echo.execute(interaction)

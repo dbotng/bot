@@ -1,9 +1,9 @@
-import { CommandInteraction, GuildMember } from 'discord.js'
+import { ChatInputCommandInteraction, GuildMember } from 'discord.js'
 import { Queue } from 'distube'
-import userErrorEmbedBuilder from '../builders/embeds/userErrorEmbedBuilder'
+import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
 
 export async function userCheck(
-    interaction: CommandInteraction,
+    interaction: ChatInputCommandInteraction,
     queue: Queue | undefined
 ) {
     if (interaction.options.getSubcommand() != ('playing' || 'queue')) {
@@ -47,7 +47,7 @@ export async function userCheck(
 }
 
 export async function songCheck(
-    interaction: CommandInteraction,
+    interaction: ChatInputCommandInteraction,
     queue: Queue | undefined
 ) {
     if (

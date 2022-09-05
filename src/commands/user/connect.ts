@@ -1,28 +1,27 @@
-import { SlashCommandSubcommandBuilder } from '@discordjs/builders'
 import {
-    CacheType,
-    CollectorFilter,
-    CommandInteraction,
-    Interaction,
+    ChatInputCommandInteraction,
     Message,
-    MessageActionRow,
-    MessageButton,
+    ActionRowBuilder,
+    ButtonBuilder,
     MessageComponentInteraction,
+    SlashCommandSubcommandBuilder,
+    ComponentType,
+    ButtonStyle
 } from 'discord.js'
-import embedBuilder from '../../builders/embeds/embedBuilder'
+import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
 import 'dotenv/config'
 import phin from 'phin'
-import { response as NGResponse } from '../../types/newgrounds/responses'
-import userErrorEmbedBuilder from '../../builders/embeds/userErrorEmbedBuilder'
-import commandSuccessEmbedBuilder from '../../builders/embeds/commandSuccessEmbedBuilder'
-import prisma from '../../clients/prisma'
+import { response as NGResponse } from '@d-bot/types/newgrounds/responses.js'
+import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
+import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
+import prisma from '@d-bot/clients/prisma.js'
 import { Prisma } from '@prisma/client'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('connect')
     .setDescription('Connect an NG account')
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
     const sessionStartResult = await ngPostData({
         component: 'App.startSession',
         params: { force: true },
@@ -59,18 +58,18 @@ export async function execute(interaction: CommandInteraction) {
                     ),
             ],
             components: [
-                new MessageActionRow().addComponents(
-                    new MessageButton()
+                new ActionRowBuilder<ButtonBuilder>().addComponents(
+                    new ButtonBuilder()
                         .setURL(
                             (sessionStartResult as NGResponse).result.data
                                 .session.passport_url
                         )
                         .setLabel('Login to Newgrounds')
-                        .setStyle('LINK'),
-                    new MessageButton()
+                        .setStyle(ButtonStyle.Link),
+                    new ButtonBuilder()
                         .setCustomId('done')
                         .setLabel('Done')
-                        .setStyle('SUCCESS')
+                        .setStyle(ButtonStyle.Success)
                 ),
             ],
             fetchReply: true,
@@ -79,7 +78,7 @@ export async function execute(interaction: CommandInteraction) {
             ;(reply as Message)
                 .awaitMessageComponent({
                     filter,
-                    componentType: 'BUTTON',
+                    componentType: ComponentType.Button,
                     time: 60000,
                 })
                 .then(async (button) => {

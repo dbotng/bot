@@ -1,12 +1,8 @@
-import {
-    SlashCommandNumberOption,
-    SlashCommandSubcommandBuilder,
-} from '@discordjs/builders'
-import { CommandInteraction } from 'discord.js'
-import commandSuccessEmbedBuilder from '../../builders/embeds/commandSuccessEmbedBuilder'
-import * as distube from '../../clients/distube'
+import { ChatInputCommandInteraction, SlashCommandNumberOption, SlashCommandSubcommandBuilder } from 'discord.js'
+import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
+import * as distube from '@d-bot/clients/distube.js'
 
-import * as voice from '../../util/voice'
+import * as voice from '@d-bot/util/voice.js'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('volume')
@@ -20,7 +16,7 @@ function arg1(option: SlashCommandNumberOption) {
         .setRequired(true)
 }
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const guildId = interaction.guildId!
     const queue = distube.client.getQueue(guildId)

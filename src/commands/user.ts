@@ -1,9 +1,8 @@
-import { SlashCommandBuilder } from '@discordjs/builders'
-import { CommandInteraction } from 'discord.js'
+import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js'
 
-import * as connect from './user/connect'
-import * as disconnect from './user/disconnect'
-import * as fetch from './user/fetch'
+import * as connect from '@d-bot/commands/user/connect.js'
+import * as disconnect from '@d-bot/commands/user/disconnect.js'
+import * as fetch from '@d-bot/commands/user/fetch.js'
 
 export const data = new SlashCommandBuilder()
     .setName('user')
@@ -12,7 +11,7 @@ export const data = new SlashCommandBuilder()
     .addSubcommand(disconnect.data)
     .addSubcommand(fetch.data)
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     switch (interaction.options.getSubcommand()) {
         case 'connect': {

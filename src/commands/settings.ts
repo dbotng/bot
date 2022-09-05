@@ -1,9 +1,8 @@
-import { SlashCommandBuilder } from '@discordjs/builders'
-import { CommandInteraction } from 'discord.js'
+import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js'
 
-import * as get from './settings/get'
-import * as cooldown from './settings/cooldown'
-import userErrorEmbedBuilder from '../builders/embeds/userErrorEmbedBuilder'
+import * as get from '@d-bot/commands/settings/get.js'
+import * as cooldown from '@d-bot/commands/settings/cooldown.js'
+import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
 
 export const data = new SlashCommandBuilder()
     .setName('settings')
@@ -11,8 +10,8 @@ export const data = new SlashCommandBuilder()
     .addSubcommand(get.data)
     .addSubcommandGroup(cooldown.data)
 
-export async function execute(interaction: CommandInteraction) {
-    if (!interaction.memberPermissions?.has('ADMINISTRATOR')) {
+export async function execute(interaction: ChatInputCommandInteraction) {
+    if (!interaction.memberPermissions?.has('Administrator')) {
         await interaction.reply({
             embeds: [
                 new userErrorEmbedBuilder().create(

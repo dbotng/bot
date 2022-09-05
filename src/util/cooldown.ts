@@ -1,15 +1,15 @@
-import { CommandInteraction, GuildMember } from 'discord.js'
+import { ChatInputCommandInteraction, GuildMember } from 'discord.js'
 import humanizeDuration from 'humanize-duration'
-import embedBuilder from '../builders/embeds/embedBuilder'
+import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
 
 const cooldown = global.cooldown
 
 const shouldElapse = 10000
 
-import prisma from '../clients/prisma'
-import * as queries from '../types/prismaQueries'
+import prisma from '@d-bot/clients/prisma.js'
+import * as queries from '@d-bot/types/prismaQueries.js'
 
-async function whitelist(interaction: CommandInteraction) {
+async function whitelist(interaction: ChatInputCommandInteraction) {
     //TODO: Database default/custom options
     const query = (
         (
@@ -36,13 +36,13 @@ async function whitelist(interaction: CommandInteraction) {
     else return false
 }
 
-function formatId(interaction: CommandInteraction) {
+function formatId(interaction: ChatInputCommandInteraction) {
     return `${interaction.guildId}_${interaction.channelId}_${
         (interaction.member as GuildMember).id
     }_${interaction.commandName}_${interaction.options.getSubcommand()}`
 }
 
-export async function check(interaction: CommandInteraction) {
+export async function check(interaction: ChatInputCommandInteraction) {
     const cooldownId = formatId(interaction)
 
     if ((await whitelist(interaction)) && cooldown.has(cooldownId)) {
@@ -61,7 +61,7 @@ export async function check(interaction: CommandInteraction) {
     return false
 }
 
-export async function create(interaction: CommandInteraction) {
+export async function create(interaction: ChatInputCommandInteraction) {
     const cooldownId = formatId(interaction)
 
     if (await whitelist(interaction)) {

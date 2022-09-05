@@ -1,16 +1,15 @@
-import { SlashCommandSubcommandBuilder } from '@discordjs/builders'
-import { CommandInteraction } from 'discord.js'
-import commandSuccessEmbedBuilder from '../../builders/embeds/commandSuccessEmbedBuilder'
-import userErrorEmbedBuilder from '../../builders/embeds/userErrorEmbedBuilder'
-import * as distube from '../../clients/distube'
+import { ChatInputCommandInteraction, SlashCommandSubcommandBuilder } from 'discord.js'
+import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
+import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
+import * as distube from '@d-bot/clients/distube.js'
 
-import * as voice from '../../util/voice'
+import * as voice from '@d-bot/util/voice.js'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('skip')
     .setDescription('Skip to the next song in the queue')
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const guildId = interaction.guildId!
     const queue = distube.client.getQueue(guildId)

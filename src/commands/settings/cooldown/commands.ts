@@ -1,14 +1,10 @@
-import {
-    SlashCommandStringOption,
-    SlashCommandSubcommandBuilder,
-} from '@discordjs/builders'
 import { Prisma } from '@prisma/client'
-import { CommandInteraction } from 'discord.js'
-import commandSuccessEmbedBuilder from '../../../builders/embeds/commandSuccessEmbedBuilder'
-import userErrorEmbedBuilder from '../../../builders/embeds/userErrorEmbedBuilder'
-import prisma from '../../../clients/prisma'
+import { ChatInputCommandInteraction, SlashCommandStringOption, SlashCommandSubcommandBuilder } from 'discord.js'
+import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
+import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
+import prisma from '@d-bot/clients/prisma.js'
 
-import * as queries from '../../../types/prismaQueries'
+import * as queries from '@d-bot/types/prismaQueries.js'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('commands')
@@ -41,7 +37,7 @@ function mapCommands(command: any) {
     }
 }
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
     const arg1 = interaction.options.getString('command')
     /* eslint-disable @typescript-eslint/no-non-null-assertion */
 

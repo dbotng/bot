@@ -1,5 +1,5 @@
 import { SlashCommandSubcommandGroupBuilder } from '@discordjs/builders'
-import { CommandInteraction } from 'discord.js'
+import { ChatInputCommandInteraction } from 'discord.js'
 
 import * as time from './cooldown/time'
 import * as commands from './cooldown/commands'
@@ -10,7 +10,7 @@ export const data = new SlashCommandSubcommandGroupBuilder()
     .addSubcommand(time.data)
     .addSubcommand(commands.data)
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
     switch (interaction.options.getSubcommand()) {
         case 'time': {
             await time.execute(interaction)

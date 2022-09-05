@@ -1,9 +1,8 @@
-import { SlashCommandBuilder } from '@discordjs/builders'
-import { CommandInteraction } from 'discord.js'
+import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js'
 
-import * as devbot from './info/devbot'
-import * as bot from './info/bot'
-import * as invite from './info/invite'
+import * as devbot from '@d-bot/commands/info/devbot.js'
+import * as bot from '@d-bot/commands/info/bot.js'
+import * as invite from '@d-bot/commands/info/invite.js'
 
 export const data = new SlashCommandBuilder()
     .setName('info')
@@ -12,7 +11,7 @@ export const data = new SlashCommandBuilder()
     .addSubcommand(bot.data)
     .addSubcommand(invite.data)
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
     switch (interaction.options.getSubcommand()) {
         case 'devbot': {
             await devbot.execute(interaction)

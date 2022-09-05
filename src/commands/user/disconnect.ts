@@ -1,12 +1,9 @@
-import {
-    SlashCommandStringOption,
-    SlashCommandSubcommandBuilder,
-} from '@discordjs/builders'
-import { CommandInteraction } from 'discord.js'
-import commandSuccessEmbedBuilder from '../../builders/embeds/commandSuccessEmbedBuilder'
-import userErrorEmbedBuilder from '../../builders/embeds/userErrorEmbedBuilder'
-import prisma from '../../clients/prisma'
-import { NewgroundsUserQuery } from '../../types/prismaQueries'
+import { ChatInputCommandInteraction, SlashCommandStringOption,
+    SlashCommandSubcommandBuilder } from 'discord.js'
+import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
+import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
+import prisma from '@d-bot/clients/prisma.js'
+import { NewgroundsUserQuery } from '@d-bot/types/prismaQueries.js'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('disconnect')
@@ -20,7 +17,7 @@ function arg1(option: SlashCommandStringOption) {
         .setRequired(true)
 }
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
     const query = await prisma.discordUser.findUnique({
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         where: { id: BigInt(interaction.user.id!) },
