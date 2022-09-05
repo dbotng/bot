@@ -1,5 +1,9 @@
 import prisma from '@d-bot/clients/prisma.js'
-import { ChatInputCommandInteraction, SlashCommandNumberOption, SlashCommandSubcommandBuilder, } from 'discord.js'
+import {
+    ChatInputCommandInteraction,
+    SlashCommandNumberOption,
+    SlashCommandSubcommandBuilder,
+} from 'discord.js'
 
 import * as queries from '@d-bot/types/prismaQueries.js'
 import { Prisma } from '@prisma/client'

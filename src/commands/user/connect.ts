@@ -6,7 +6,7 @@ import {
     MessageComponentInteraction,
     SlashCommandSubcommandBuilder,
     ComponentType,
-    ButtonStyle
+    ButtonStyle,
 } from 'discord.js'
 import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
 import 'dotenv/config'

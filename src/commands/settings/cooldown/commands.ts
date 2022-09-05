@@ -1,5 +1,9 @@
 import { Prisma } from '@prisma/client'
-import { ChatInputCommandInteraction, SlashCommandStringOption, SlashCommandSubcommandBuilder } from 'discord.js'
+import {
+    ChatInputCommandInteraction,
+    SlashCommandStringOption,
+    SlashCommandSubcommandBuilder,
+} from 'discord.js'
 import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
 import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
 import prisma from '@d-bot/clients/prisma.js'

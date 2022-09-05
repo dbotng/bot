@@ -1,4 +1,8 @@
-import { ChatInputCommandInteraction, SlashCommandStringOption, SlashCommandSubcommandBuilder, } from 'discord.js'
+import {
+    ChatInputCommandInteraction,
+    SlashCommandStringOption,
+    SlashCommandSubcommandBuilder,
+} from 'discord.js'
 import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
 import * as distube from '@d-bot/clients/distube.js'
 

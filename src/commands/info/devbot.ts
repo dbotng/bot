@@ -1,4 +1,7 @@
-import { ChatInputCommandInteraction, SlashCommandSubcommandBuilder } from 'discord.js'
+import {
+    ChatInputCommandInteraction,
+    SlashCommandSubcommandBuilder,
+} from 'discord.js'
 import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
 
 export const data = new SlashCommandSubcommandBuilder()

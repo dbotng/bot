@@ -1,8 +1,10 @@
-import { SlashCommandSubcommandGroupBuilder } from '@discordjs/builders'
-import { ChatInputCommandInteraction } from 'discord.js'
+import {
+    ChatInputCommandInteraction,
+    SlashCommandSubcommandGroupBuilder,
+} from 'discord.js'
 
-import * as time from './cooldown/time'
-import * as commands from './cooldown/commands'
+import * as time from '@d-bot/commands/settings/cooldown/time.js'
+import * as commands from '@d-bot/commands/settings/cooldown/commands.js'
 
 export const data = new SlashCommandSubcommandGroupBuilder()
     .setName('cooldown')

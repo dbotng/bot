@@ -1,8 +1,8 @@
 import {
+    ChatInputCommandInteraction,
     SlashCommandStringOption,
     SlashCommandSubcommandBuilder,
-} from '@discordjs/builders'
-import { ChatInputCommandInteraction } from 'discord.js'
+} from 'discord.js'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('echo')
@@ -16,7 +16,9 @@ function arg1(option: SlashCommandStringOption) {
         .setRequired(true)
 }
 
-export async function execute(interaction: ChatInputCommandInteraction): Promise<void> {
+export async function execute(
+    interaction: ChatInputCommandInteraction
+): Promise<void> {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     await interaction.reply(interaction.options.getString('content')!)
 }

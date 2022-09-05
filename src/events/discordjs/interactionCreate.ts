@@ -1,4 +1,8 @@
-import { ChatInputCommandInteraction, Interaction, InteractionType } from 'discord.js'
+import {
+    ChatInputCommandInteraction,
+    Interaction,
+    InteractionType,
+} from 'discord.js'
 import * as cooldown from '@d-bot/util/cooldown.js'
 import commandErrorEmbedBuilder from '@d-bot/builders/embeds/commandErrorEmbedBuilder.js'
 

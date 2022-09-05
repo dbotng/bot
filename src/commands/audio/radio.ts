@@ -1,4 +1,8 @@
-import { ChatInputCommandInteraction, GuildMember, SlashCommandSubcommandBuilder } from 'discord.js'
+import {
+    ChatInputCommandInteraction,
+    GuildMember,
+    SlashCommandSubcommandBuilder,
+} from 'discord.js'
 import * as distube from '@d-bot/clients/distube.js'
 
 import * as voice from '@d-bot/util/voice.js'

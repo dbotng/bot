@@ -1,4 +1,7 @@
-import { ChatInputCommandInteraction, SlashCommandSubcommandBuilder } from 'discord.js'
+import {
+    ChatInputCommandInteraction,
+    SlashCommandSubcommandBuilder,
+} from 'discord.js'
 import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
 import * as distube from '@d-bot/clients/distube.js'
 import phin from 'phin'
@@ -16,9 +19,10 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     const queue = distube.client.getQueue(guildId)
     if (await voice.userCheck(interaction, queue)) return
     if (
-        queue?.songs[0].streamURL?.includes('https://stream.newgroundsradio.com/')
+        queue?.songs[0].streamURL?.includes(
+            'https://stream.newgroundsradio.com/'
+        )
     ) {
-
         const songInfo = (
             (
                 await phin({

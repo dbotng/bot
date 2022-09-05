@@ -1,4 +1,7 @@
-import { ChatInputCommandInteraction, SlashCommandSubcommandBuilder } from 'discord.js'
+import {
+    ChatInputCommandInteraction,
+    SlashCommandSubcommandBuilder,
+} from 'discord.js'
 import humanizeDuration from 'humanize-duration'
 import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
 import 'dotenv/config'

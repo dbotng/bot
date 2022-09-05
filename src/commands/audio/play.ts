@@ -1,4 +1,9 @@
-import { ChatInputCommandInteraction, GuildMember, SlashCommandStringOption, SlashCommandSubcommandBuilder } from 'discord.js'
+import {
+    ChatInputCommandInteraction,
+    GuildMember,
+    SlashCommandStringOption,
+    SlashCommandSubcommandBuilder,
+} from 'discord.js'
 import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
 import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
 import * as distube from '@d-bot/clients/distube.js'
@@ -42,7 +47,9 @@ export async function execute(interaction: ChatInputCommandInteraction) {
             ],
         })
     } else if (
-        queue?.songs[0].streamURL?.includes('https://stream.newgroundsradio.com/')
+        queue?.songs[0].streamURL?.includes(
+            'https://stream.newgroundsradio.com/'
+        )
     ) {
         distube.client.stop(guildId)
     } else {
