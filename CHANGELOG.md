@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2022.9.5](https://github.com/Featyre/D-Bot/compare/v2022.2.9...v2022.9.5) (2022-09-05)
+
+
+### Bug Fixes
+
+* fix unupdated code ([121dc84](https://github.com/Featyre/D-Bot/commit/121dc844015655d06a20eba608376231010dd3f8))
+
 ### [2022.2.9](https://github.com/Featyre/D-Bot/compare/v2022.2.8...v2022.2.9) (2022-05-28)
 
 ### Bug Fixes
