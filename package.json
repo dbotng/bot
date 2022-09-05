@@ -14,7 +14,7 @@
         "postbuild": "npx copyfiles -u 1 -V copyfiles src/**/*.js dist",
         "start": "node dist/index.js",
         "deploy": "node dist/deploy.js",
-        "prerelease": "bumpver update -n --$npm_config_component",
+        "prerelease": "bumpver update -n",
         "release": "standard-version --skip.bump"
     },
     "repository": {
