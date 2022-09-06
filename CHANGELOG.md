@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2022.9.6](https://github.com/Featyre/D-Bot/compare/v2022.9.5...v2022.9.6) (2022-09-06)
+
+
+### Bug Fixes
+
+* Fixed errors casuse by discord.js v14 ([5b01453](https://github.com/Featyre/D-Bot/commit/5b01453194a482a17f32ddbaeb66cfc7f4ce91c2))
+
 ### [2022.9.5](https://github.com/Featyre/D-Bot/compare/v2022.2.9...v2022.9.5) (2022-09-05)
 
 ### Bug Fixes
