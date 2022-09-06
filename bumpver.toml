@@ -1,7 +1,7 @@
 # bumpver.toml in project root
 
 [bumpver]
-current_version = "2022.9.6.0"
+current_version = "2022.9.6.1001"
 version_pattern = "YYYY.MM.DD.BUILD[-TAG]"
 commit_message = "bump to version {new_version}"
 commit = true
