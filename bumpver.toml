@@ -2,7 +2,7 @@
 
 [bumpver]
 current_version = "2022.9.6"
-version_pattern = "YYYY.MM.DD"
+version_pattern = "YYYY.MM.DD[-TAG]"
 commit_message = "bump to version {new_version}"
 commit = true
 tag = false
