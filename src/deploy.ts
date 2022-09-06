@@ -63,9 +63,8 @@ if (process.env.environment == 'dev') {
         )
         .catch(console.error)
     rest.put(
-        Routes.applicationGuildCommands(
-            process.env.clientId!,
-            process.env.guildId!
+        Routes.applicationCommands(
+            process.env.clientId!
         ),
         { body: [] }
     )
@@ -75,9 +74,8 @@ if (process.env.environment == 'dev') {
         .catch(console.error)
         .finally(() => {
             rest.put(
-                Routes.applicationGuildCommands(
-                    process.env.clientId!,
-                    process.env.guildId!
+                Routes.applicationCommands(
+                    process.env.clientId!
                 ),
                 { body: commands }
             )
