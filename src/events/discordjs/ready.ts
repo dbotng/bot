@@ -1,4 +1,4 @@
-import { ActivityOptions, Client } from 'discord.js'
+import { ActivityOptions, ActivityType, Client } from 'discord.js'
 import 'dotenv/config'
 
 export const name = 'ready'
@@ -8,10 +8,13 @@ export const once = true
 export function execute(client: Client) {
     console.log('[discord.js] Success')
     const activityTexts: ActivityOptions[] = [
-        { name: `with version ${process.env.version}`, type: 'PLAYING' },
-        { name: 'which content to blam or save', type: 'WATCHING' },
-        { name: 'Newgrounds radio', type: 'LISTENING' },
-        { name: 'game medals', type: 'COMPETING' },
+        {
+            name: `with version ${process.env.version}`,
+            type: ActivityType.Playing,
+        },
+        { name: 'which content to blam or save', type: ActivityType.Watching },
+        { name: 'Newgrounds radio', type: ActivityType.Listening },
+        { name: 'game medals', type: ActivityType.Competing },
     ]
 
     setInterval(

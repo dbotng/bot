@@ -1,8 +1,8 @@
-import { MessageEmbed } from 'discord.js'
+import { EmbedBuilder } from 'discord.js'
 
 export default class {
     create(title: string, desc: string) {
-        return new MessageEmbed()
+        return new EmbedBuilder()
             .setColor('#fda238')
             .setTitle(title)
             .setDescription(desc)

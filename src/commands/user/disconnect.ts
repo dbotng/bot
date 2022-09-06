@@ -6,7 +6,7 @@ import {
 import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
 import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
 import prisma from '@d-bot/clients/prisma.js'
-import { NewgroundsUserQuery } from '@d-bot/types/prismaQueries.js'
+import { newgroundsUser } from '@prisma/client'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('disconnect')
@@ -56,7 +56,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         })
     } else {
         const isRemovedOrNotExist = (
-            query?.newgroundsUser as NewgroundsUserQuery[]
+            query?.newgroundsUser as newgroundsUser[]
         ).some(async (account) => {
             if (account.name == interaction.options.getString('username')) {
                 await prisma.discordUser.update({

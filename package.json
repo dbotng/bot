@@ -9,12 +9,11 @@
         "node": ">=14.16"
     },
     "scripts": {
-        "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx --fix && npx prettier --write .",
-        "build": "rimraf dist && tsc",
-        "postbuild": "npx copyfiles -u 1 -V copyfiles src/**/*.js dist",
+        "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx --fix && npx prettier --write ./src",
+        "build": "rimraf dist && tsc && tsc-alias -p tsconfig.json",
         "start": "node dist/index.js",
         "deploy": "node dist/deploy.js",
-        "prerelease": "bumpver update -n",
+        "bump": "bumpver update",
         "release": "standard-version --skip.bump"
     },
     "repository": {

@@ -1,4 +1,4 @@
-import { Prisma } from '@prisma/client'
+import { Prisma, servers } from '@prisma/client'
 import {
     ChatInputCommandInteraction,
     SlashCommandStringOption,
@@ -7,8 +7,6 @@ import {
 import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
 import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
 import prisma from '@d-bot/clients/prisma.js'
-
-import * as queries from '@d-bot/types/prismaQueries.js'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('commands')
@@ -57,22 +55,23 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     /* eslint-enable */
 
     const query = (
-        await prisma.servers.findUnique({
+        (await prisma.servers.findUnique({
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             where: { id: BigInt(interaction.guildId!) },
             select: { settings: true },
-        })
-    )?.settings
+        })) as servers
+    )?.settings as Prisma.JsonObject
 
-    const commands = (query as queries.SettingsQuery).cooldown.commands
+    const commands = (query?.cooldown as Prisma.JsonObject).commands as string[]
 
     /* eslint-disable @typescript-eslint/no-non-null-assertion */
-    if (commands.includes(arg1!)) {
-        ;(query as queries.SettingsQuery).cooldown.commands = commands.filter(
-            (item) => item !== arg1!
-        )
+    if (commands?.includes(arg1!)) {
+        ;((query.cooldown as Prisma.JsonObject).commands as string[]) =
+            commands.filter((item) => item !== arg1!)
     } else {
-        ;(query as queries.SettingsQuery).cooldown.commands.push(arg1!)
+        ;((query.cooldown as Prisma.JsonObject)?.commands as string[]).push(
+            arg1!
+        )
     }
     /* eslint-enable */
 
@@ -80,7 +79,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         .update({
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             where: { id: BigInt(interaction.guildId!) },
-            data: { settings: query as Prisma.InputJsonValue },
+            data: { settings: query },
         })
         .then(async () => {
             await interaction.reply({

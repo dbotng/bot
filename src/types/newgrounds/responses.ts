@@ -1,7 +1,7 @@
 /* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-namespace */
-import user from './objects/user'
+import user from '@d-bot/types/newgrounds/objects/user.js'
 
 export interface response {
     success: boolean

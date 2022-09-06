@@ -2,15 +2,18 @@ import { REST } from '@discordjs/rest'
 import { Routes } from 'discord-api-types/v10'
 import 'dotenv/config'
 import fs from 'fs'
+import { fileURLToPath } from 'url'
 
 const commands: string[] = []
 const commandFiles = fs
-    .readdirSync(`${__dirname}/commands`)
+    .readdirSync(fileURLToPath(new URL(`./commands`, import.meta.url)))
     .filter((file) => file.endsWith('.js'))
 
 for (const file of commandFiles) {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const command = await import(`${__dirname}/commands/${file}`)
+    const command = await import(
+        new URL(`./commands/${file}`, import.meta.url).toString()
+    )
     commands.push(command.data.toJSON())
 }
 

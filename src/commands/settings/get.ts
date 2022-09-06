@@ -4,7 +4,7 @@ import {
 } from 'discord.js'
 import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
 import prisma from '@d-bot/clients/prisma.js'
-import * as queries from '@d-bot/types/prismaQueries.js'
+import { Prisma, servers } from '@prisma/client'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('get')
@@ -18,16 +18,25 @@ export async function execute(
         where: { id: BigInt(interaction.guildId!) },
         select: { settings: true },
     })
+
     await interaction.reply({
         embeds: [
-            new embedBuilder().create('Here are your settings', '').addFields({
-                name: 'Cooldown',
-                value: `Time: ${
-                    (query?.settings as queries.SettingsQuery).cooldown.time
-                }\nEnabled commands: ${
-                    (query?.settings as queries.SettingsQuery).cooldown.commands
-                }`,
-            }),
+            new embedBuilder().create('Settings', 'Here are your settings').addFields(
+                {
+                    name: 'Cooldown',
+                    value: `Time: ${
+                        (
+                            ((query as servers)?.settings as Prisma.JsonObject)
+                                ?.cooldown as Prisma.JsonObject
+                        )?.time as number
+                    }\nEnabled commands: ${
+                        (
+                            ((query as servers)?.settings as Prisma.JsonObject)
+                                ?.cooldown as Prisma.JsonObject
+                        )?.commands as string[]
+                    }`,
+                },
+            ),
         ],
     })
 }

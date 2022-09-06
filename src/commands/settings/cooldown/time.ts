@@ -5,8 +5,7 @@ import {
     SlashCommandSubcommandBuilder,
 } from 'discord.js'
 
-import * as queries from '@d-bot/types/prismaQueries.js'
-import { Prisma } from '@prisma/client'
+import { Prisma, servers } from '@prisma/client'
 import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
 
 export const data = new SlashCommandSubcommandBuilder()
@@ -23,14 +22,14 @@ function arg1(option: SlashCommandNumberOption) {
 
 export async function execute(interaction: ChatInputCommandInteraction) {
     const query = (
-        await prisma.servers.findUnique({
+        (await prisma.servers.findUnique({
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             where: { id: BigInt(interaction.guildId!) },
             select: { settings: true },
-        })
-    )?.settings
+        })) as servers
+    )?.settings as Prisma.JsonObject
 
-    ;(query as queries.SettingsQuery).cooldown.time =
+    ;((query.cooldown as Prisma.JsonObject).time as number) =
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         interaction.options.getNumber('time')!
 

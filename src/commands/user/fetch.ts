@@ -7,10 +7,7 @@ import {
 import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
 import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
 import prisma from '@d-bot/clients/prisma.js'
-import {
-    DiscordUserQuery,
-    NewgroundsUserQuery,
-} from '@d-bot/types/prismaQueries.js'
+import { discordUser, newgroundsUser, Prisma } from '@prisma/client'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('fetch')
@@ -67,25 +64,21 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                         .create(
                             "Newgrounds user's info",
                             `Username: ${
-                                (query as unknown as NewgroundsUserQuery).name
+                                (query as newgroundsUser).name
                             }\nSupporter: ${
-                                (query as unknown as NewgroundsUserQuery)
-                                    .supporter
+                                (query as newgroundsUser).supporter
                             }\nDiscord Tag: ${
-                                (
-                                    query
-                                        .discordUser[0] as unknown as DiscordUserQuery
-                                ).username
+                                (query.discordUser[0] as discordUser).username
                             }#${
-                                (
-                                    query
-                                        .discordUser[0] as unknown as DiscordUserQuery
-                                ).discriminator
+                                (query.discordUser[0] as discordUser)
+                                    .discriminator
                             }`
                         )
                         .setThumbnail(
-                            (query as unknown as NewgroundsUserQuery).icons
-                                .large
+                            (
+                                (query as newgroundsUser)
+                                    .icons as Prisma.JsonObject
+                            )?.large as string
                         ),
                 ],
             })
@@ -102,12 +95,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                 embeds: [
                     new embedBuilder().create(
                         'info',
-                        `${
-                            (
-                                query
-                                    .newgroundsUser[0] as unknown as NewgroundsUserQuery
-                            ).name
-                        }`
+                        `${(query.newgroundsUser[0] as newgroundsUser).name}`
                     ),
                 ],
             })

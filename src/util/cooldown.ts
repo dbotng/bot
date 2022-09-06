@@ -7,19 +7,21 @@ const cooldown = global.cooldown
 const shouldElapse = 10000
 
 import prisma from '@d-bot/clients/prisma.js'
-import * as queries from '@d-bot/types/prismaQueries.js'
+import { Prisma, servers } from '@prisma/client'
 
 async function whitelist(interaction: ChatInputCommandInteraction) {
     //TODO: Database default/custom options
     const query = (
         (
-            await prisma.servers.findUnique({
-                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                where: { id: BigInt(interaction.guildId!) },
-                select: { settings: true },
-            })
-        )?.settings as queries.SettingsQuery
-    ).cooldown.commands
+            (
+                (await prisma.servers.findUnique({
+                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                    where: { id: BigInt(interaction.guildId!) },
+                    select: { settings: true },
+                })) as servers
+            )?.settings as Prisma.JsonObject
+        )?.cooldown as Prisma.JsonObject
+    ).commands as string[]
     if (
         query.includes(
             `${interaction.commandName}_${interaction.options.getSubcommand()}`
