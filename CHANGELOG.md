@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2022.9.6.1001](///compare/v2022.9.6...v2022.9.6.1001) (2022-09-06)
+
+
+### Bug Fixes
+
+* fixing deploy commands failed 362f835
+
 ### [2022.9.6](https://github.com/Featyre/D-Bot/compare/v2022.9.5...v2022.9.6) (2022-09-06)
 
 
