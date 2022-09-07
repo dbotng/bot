@@ -32,7 +32,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
             },
             {
                 name: 'Creator info and links',
-                value: 'Created by Featyre#0843\n[Github repo](https://github.com/Featyre/D-Bot)',
+                value: 'Created by Featyre#0843\n[Github repo](https://github.com/dbotng/bot)',
             }
         )
     await interaction.reply({ embeds: [embed] })

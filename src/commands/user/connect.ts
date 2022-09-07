@@ -53,7 +53,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                         },
                         {
                             name: 'Source code',
-                            value: '[Link](https://github.com/Featyre/D-Bot)',
+                            value: '[Link](https://github.com/dbotng/bot)',
                         }
                     ),
             ],

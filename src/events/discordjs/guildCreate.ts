@@ -40,7 +40,7 @@ async function sendEmbed(channel: NonThreadGuildBasedChannel | undefined) {
                     )
                     .addFields({
                         name: 'Any questions?',
-                        value: 'You can always join the [Discord server](https://discord.gg/nSdQyfZd3s) where you can ask questions (and chat with other people) and also the [Github repo](https://github.com/Featyre/D-Bot) for submitting an issue!',
+                        value: 'You can always join the [Discord server](https://discord.gg/gKgSnRQRCr) where you can ask questions (and chat with other people) and also the [Github repo](https://github.com/dbotng/bot) for submitting an issue!',
                     }),
             ],
         })
