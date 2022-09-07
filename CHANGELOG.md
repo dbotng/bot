@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2022.9.7.0](///compare/v2022.9.6...v2022.9.7.0) (2022-09-07)
+
+
+### Bug Fixes
+
+* fix issues relating to radio mode + removed debug msg c9fe9e6
+* fixing deploy commands failed 362f835
+
 ## [2022.9.6.1001](///compare/v2022.9.6...v2022.9.6.1001) (2022-09-06)
 
 
