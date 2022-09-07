@@ -24,15 +24,15 @@ function arg1(option: SlashCommandStringOption) {
 
 function arg2(option: SlashCommandUserOption) {
     return option
-        .setName('user')
-        .setDescription('Discord User')
+        .setName('discord')
+        .setDescription('Discord Tag')
         .setRequired(false)
 }
 
 export async function execute(interaction: ChatInputCommandInteraction) {
     if (
         interaction.options.getString('username') == null &&
-        interaction.options.getUser('user') == null
+        interaction.options.getUser('discord') == null
     ) {
         await interaction.reply({
             embeds: [
@@ -41,7 +41,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         })
     } else if (
         interaction.options.getString('username') != null &&
-        interaction.options.getUser('user') != null
+        interaction.options.getUser('discord') != null
     ) {
         await interaction.reply({
             embeds: [
@@ -56,7 +56,6 @@ export async function execute(interaction: ChatInputCommandInteraction) {
             where: { name: interaction.options.getString('username')! },
             include: { discordUser: true },
         })
-        console.log(query)
         if (query) {
             await interaction.reply({
                 embeds: [
@@ -89,7 +88,6 @@ export async function execute(interaction: ChatInputCommandInteraction) {
             where: { id: BigInt(interaction.options.getUser('user')!.id) },
             select: { newgroundsUser: true },
         })
-        console.log(query)
         if (query) {
             await interaction.reply({
                 embeds: [
