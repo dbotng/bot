@@ -10,7 +10,6 @@ const commandFiles = fs
     .filter((file) => file.endsWith('.js'))
 
 for (const file of commandFiles) {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const command = await import(
         new URL(`./commands/${file}`, import.meta.url).toString()
     )
@@ -62,23 +61,15 @@ if (process.env.environment == 'dev') {
             console.log('[deploy.ts] Successfully cleared local commands')
         )
         .catch(console.error)
-    rest.put(
-        Routes.applicationCommands(
-            process.env.clientId!
-        ),
-        { body: [] }
-    )
+    rest.put(Routes.applicationCommands(process.env.clientId!), { body: [] })
         .then(() =>
             console.log('[deploy.ts] Successfully cleared global commands')
         )
         .catch(console.error)
         .finally(() => {
-            rest.put(
-                Routes.applicationCommands(
-                    process.env.clientId!
-                ),
-                { body: commands }
-            )
+            rest.put(Routes.applicationCommands(process.env.clientId!), {
+                body: commands,
+            })
                 .then(() =>
                     console.log(
                         '[deploy.ts] Successfully deployed global commands'

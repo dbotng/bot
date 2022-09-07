@@ -21,8 +21,9 @@ export async function execute(
 
     await interaction.reply({
         embeds: [
-            new embedBuilder().create('Settings', 'Here are your settings').addFields(
-                {
+            new embedBuilder()
+                .create('Settings', 'Here are your settings')
+                .addFields({
                     name: 'Cooldown',
                     value: `Time: ${
                         (
@@ -35,8 +36,7 @@ export async function execute(
                                 ?.cooldown as Prisma.JsonObject
                         )?.commands as string[]
                     }`,
-                },
-            ),
+                }),
         ],
     })
 }

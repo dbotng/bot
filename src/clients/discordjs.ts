@@ -14,7 +14,6 @@ export async function init() {
         .filter((file) => file.endsWith('.js'))
 
     for (const file of commandFiles) {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
         const command = await import(
             new URL(`./../commands/${file}`, import.meta.url).toString()
         )
@@ -28,7 +27,6 @@ export async function init() {
         .filter((file) => file.endsWith('.js'))
 
     for (const file of eventFiles) {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
         const event = await import(
             new URL(`./../events/discordjs/${file}`, import.meta.url).toString()
         )

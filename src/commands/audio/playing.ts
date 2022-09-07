@@ -47,12 +47,10 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                         'Playing now',
                         `[${title}](${url}) by [${author}](https://${author}.newgrounds.com) at Newgrounds Radio`
                     )
-                    .addFields(
-                        {
-                            name: 'Requested by',
-                            value: `<@!${queue?.songs[0].member?.id}>`,
-                        },
-                    )
+                    .addFields({
+                        name: 'Requested by',
+                        value: `<@!${queue?.songs[0].member?.id}>`,
+                    })
                     .setThumbnail(thumbnail),
             ],
         })
@@ -76,7 +74,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                         {
                             name: 'Requested by',
                             value: `<@!${queue?.songs[0].member?.id}>`,
-                        },
+                        }
                     )
                     .setThumbnail(queue?.songs[0].thumbnail as string),
             ],

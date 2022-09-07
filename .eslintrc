@@ -17,8 +17,7 @@
         "ecmaVersion": "latest"
     },
     "rules": {
-        "node/no-unsupported-features/es-syntax": "off", // Typescript compiler converts those
-        "node/no-missing-import": "off", // Not working on nested folders even on VSCode
-        "@typescript-eslint/explicit-module-boundary-types": "off" // really?
+        "node/no-unsupported-features/es-syntax": "off", // Using ESM Module
+        "node/no-missing-import": "off" // Not working on nested folders even on VSCode
     }
 }
