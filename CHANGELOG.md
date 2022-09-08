@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2022.9.8.6](///compare/v2022.9.6...v2022.9.8.6) (2022-09-08)
+
+
+### Bug Fixes
+
+* change to undefined d454a58
+* check if command is replied to prevent issues 7f5a9b4
+* fix issues relating to radio mode + removed debug msg c9fe9e6
+* fix replied interaction errors a6a1fcc
+* fix user fetch command erroring ea2dbc4
+* fixing deploy commands failed 362f835
+* issues with confusing live mode with playing mode on radio mode 7df9b01
+* radio live mode support on embed 642c6ae
+* update invite 13587ca
+
 ## [2022.9.8.5](///compare/v2022.9.6...v2022.9.8.5) (2022-09-08)
 
 
