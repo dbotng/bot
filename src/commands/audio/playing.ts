@@ -7,7 +7,7 @@ import * as distube from '@d-bot/clients/distube.js'
 import phin from 'phin'
 
 import * as voice from '@d-bot/util/voice.js'
-import * as radio from '@d-bot/types/radio.js'
+import * as radio from '@d-bot/types/newgrounds/radio.js'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('playing')
@@ -34,18 +34,33 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         const url = songInfo.title
             .match(/\((https:\/\/).+\)/g)?.[0]
             .slice(1, -1)
-        const title = songInfo.title.match(/- .+ /g)?.[0].slice(2, -1)
-        const author = songInfo.title.match(/.+ -/g)?.[0].slice(0, -2)
-        const thumbnail = `https://aicon.ngfiles.com/${url
-            ?.match(/[0-9]+/g)?.[0]
-            .slice(0, -3)}/${url?.match(/[0-9]+/g)?.[0]}.png`
+
+        const isLive = songInfo.is_live
+
+        const title = isLive
+            ? songInfo.title.match(/- .+ /g)?.[0].slice(2, -1)
+            : ''
+        const author = isLive
+            ? songInfo.title.match(/.+ -/g)?.[0].slice(0, -2)
+            : ''
+        let thumbnail = isLive
+            ? `https://aicon.ngfiles.com/${url
+                  ?.match(/[0-9]+/g)?.[0]
+                  .slice(0, -3)}/${url?.match(/[0-9]+/g)?.[0]}.png`
+            : 'https://img.ngfiles.com/defaults/icon-audio.png'
+
+        if ((await phin({ url: thumbnail })).statusCode != 200) {
+            thumbnail = 'https://img.ngfiles.com/defaults/icon-audio.png'
+        }
 
         await interaction.reply({
             embeds: [
                 new embedBuilder()
                     .create(
-                        'Playing now',
-                        `[${title}](${url}) by [${author}](https://${author}.newgrounds.com) at Newgrounds Radio`
+                        isLive ? 'Live now' : 'Playing now',
+                        isLive
+                            ? `[${title}](${url}) by [${author}](https://${author}.newgrounds.com) at Newgrounds Radio`
+                            : `${songInfo.title} at Newgrounds Radio`
                     )
                     .addFields({
                         name: 'Requested by',
