@@ -39,10 +39,10 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
         const title = isLive
             ? songInfo.title.match(/- .+ /g)?.[0].slice(2, -1)
-            : ''
+            : undefined
         const author = isLive
             ? songInfo.title.match(/.+ -/g)?.[0].slice(0, -2)
-            : ''
+            : undefined
         let thumbnail = isLive
             ? `https://aicon.ngfiles.com/${url
                   ?.match(/[0-9]+/g)?.[0]
