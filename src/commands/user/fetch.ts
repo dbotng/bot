@@ -85,7 +85,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     } else {
         const query = await prisma.discordUser.findUnique({
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            where: { id: BigInt(interaction.options.getUser('user')!.id) },
+            where: { id: BigInt(interaction.options.getUser('discord')!.id) },
             select: { newgroundsUser: true },
         })
         if (query) {
