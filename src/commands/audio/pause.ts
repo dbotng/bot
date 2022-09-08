@@ -15,9 +15,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const guildId = interaction.guildId!
     const queue = distube.client.getQueue(guildId)
-    if (
-        await voice.userCheck(interaction, queue)
-    ) {
+    if (await voice.userCheck(interaction, queue)) {
         return
     } else if (await voice.songCheck(interaction, queue)) {
         return
