@@ -44,10 +44,10 @@ export async function execute(interaction: ChatInputCommandInteraction) {
             ? undefined
             : songInfo.title.match(/.+ -/g)?.[0].slice(0, -2)
         let thumbnail = isLive
-            ? 'https://img.ngfiles.com/defaults/icon-audio.png' 
+            ? 'https://img.ngfiles.com/defaults/icon-audio.png'
             : `https://aicon.ngfiles.com/${url
-            ?.match(/[0-9]+/g)?.[0]
-            .slice(0, -3)}/${url?.match(/[0-9]+/g)?.[0]}.png`
+                  ?.match(/[0-9]+/g)?.[0]
+                  .slice(0, -3)}/${url?.match(/[0-9]+/g)?.[0]}.png`
 
         if ((await phin({ url: thumbnail })).statusCode != 200) {
             thumbnail = 'https://img.ngfiles.com/defaults/icon-audio.png'
@@ -59,7 +59,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                     .create(
                         isLive ? 'Live now' : 'Playing now',
                         isLive
-                            ? `${songInfo.title} at Newgrounds Radio` 
+                            ? `${songInfo.title} at Newgrounds Radio`
                             : `[${title}](${url}) by [${author}](https://${author}.newgrounds.com) at Newgrounds Radio`
                     )
                     .addFields({
