@@ -6,7 +6,6 @@ export async function userCheck(
     interaction: ChatInputCommandInteraction,
     queue: Queue | undefined
 ) {
-    if (interaction.replied == true) return true
     if (interaction.options.getSubcommand() != ('playing' || 'queue')) {
         if (!(interaction.member as GuildMember).voice.channel) {
             await interaction.reply({
@@ -51,7 +50,6 @@ export async function songCheck(
     interaction: ChatInputCommandInteraction,
     queue: Queue | undefined
 ) {
-    if (interaction.replied == true) return true
     if (
         queue instanceof Queue &&
         queue.songs[0].streamURL?.includes(

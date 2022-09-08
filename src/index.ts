@@ -14,5 +14,5 @@ distube.init()
 SegfaultHandler.registerHandler()
 
 process.on('unhandledRejection', (error) => {
-    console.error('[discord.js]', error)
+    console.log('[discord.js]', error)
 })

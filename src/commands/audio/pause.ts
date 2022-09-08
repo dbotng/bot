@@ -16,9 +16,10 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     const guildId = interaction.guildId!
     const queue = distube.client.getQueue(guildId)
     if (
-        (await voice.userCheck(interaction, queue)) ||
-        (await voice.songCheck(interaction, queue))
+        await voice.userCheck(interaction, queue)
     ) {
+        return
+    } else if (await voice.songCheck(interaction, queue)) {
         return
     }
     distube.client.pause(guildId)
