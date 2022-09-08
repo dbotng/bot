@@ -10,7 +10,6 @@ import prisma from '@d-bot/clients/prisma.js'
 import { Prisma, servers } from '@prisma/client'
 
 async function whitelist(interaction: ChatInputCommandInteraction) {
-    //TODO: Database default/custom options
     const query = (
         (
             (
