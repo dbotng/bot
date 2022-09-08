@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2022.9.8.1](///compare/v2022.9.6...v2022.9.8.1) (2022-09-08)
+
+
+### Bug Fixes
+
+* check if command is replied to prevent issues 7f5a9b4
+* fix issues relating to radio mode + removed debug msg c9fe9e6
+* fix user fetch command erroring ea2dbc4
+* fixing deploy commands failed 362f835
+
 ## [2022.9.8.0](///compare/v2022.9.6...v2022.9.8.0) (2022-09-08)
 
 
