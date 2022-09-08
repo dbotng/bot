@@ -38,16 +38,16 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         const isLive = songInfo.is_live
 
         const title = isLive
-            ? songInfo.title.match(/- .+ /g)?.[0].slice(2, -1)
-            : undefined
+            ? undefined
+            : songInfo.title.match(/- .+ /g)?.[0].slice(2, -1)
         const author = isLive
-            ? songInfo.title.match(/.+ -/g)?.[0].slice(0, -2)
-            : undefined
+            ? undefined
+            : songInfo.title.match(/.+ -/g)?.[0].slice(0, -2)
         let thumbnail = isLive
-            ? `https://aicon.ngfiles.com/${url
-                  ?.match(/[0-9]+/g)?.[0]
-                  .slice(0, -3)}/${url?.match(/[0-9]+/g)?.[0]}.png`
-            : 'https://img.ngfiles.com/defaults/icon-audio.png'
+            ? 'https://img.ngfiles.com/defaults/icon-audio.png' 
+            : `https://aicon.ngfiles.com/${url
+            ?.match(/[0-9]+/g)?.[0]
+            .slice(0, -3)}/${url?.match(/[0-9]+/g)?.[0]}.png`
 
         if ((await phin({ url: thumbnail })).statusCode != 200) {
             thumbnail = 'https://img.ngfiles.com/defaults/icon-audio.png'
@@ -59,8 +59,8 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                     .create(
                         isLive ? 'Live now' : 'Playing now',
                         isLive
-                            ? `[${title}](${url}) by [${author}](https://${author}.newgrounds.com) at Newgrounds Radio`
-                            : `${songInfo.title} at Newgrounds Radio`
+                            ? `${songInfo.title} at Newgrounds Radio` 
+                            : `[${title}](${url}) by [${author}](https://${author}.newgrounds.com) at Newgrounds Radio`
                     )
                     .addFields({
                         name: 'Requested by',
