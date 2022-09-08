@@ -19,7 +19,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                 )
                 .addFields({
                     name: "And here's a link to invite to share with others",
-                    value: 'https://discord.com/api/oauth2/authorize?client_id=909375750753361980&permissions=405916992&scope=bot%20applications.commands',
+                    value: 'https://discord.com/api/oauth2/authorize?client_id=909375750753361980&permissions=17585720640&scope=bot%20applications.commands',
                 }),
         ],
         files: [
