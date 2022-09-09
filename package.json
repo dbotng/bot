@@ -27,9 +27,9 @@
     "author": "Featyre",
     "license": "AGPL-3.0-or-later",
     "bugs": {
-        "url": "https://github.com/Featyre/D-Bot/issues"
+        "url": "https://github.com/dbotng/bot/issues"
     },
-    "homepage": "https://github.com/Featyre/D-Bot#readme",
+    "homepage": "https://github.com/dbotng/bot#readme",
     "devDependencies": {
         "@types/humanize-duration": "^3.27.1",
         "@types/node": "^18.7.15",
