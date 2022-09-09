@@ -3,9 +3,7 @@
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
-        "prettier",
-        "plugin:node/recommended",
-        "plugin:eslint-comments/recommended"
+        "prettier"
     ],
     "plugins": ["@typescript-eslint"],
     "env": {
@@ -15,9 +13,5 @@
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest"
-    },
-    "rules": {
-        "node/no-unsupported-features/es-syntax": "off", // Using ESM Module
-        "node/no-missing-import": "off" // Not working on nested folders even on VSCode
     }
 }
