@@ -30,7 +30,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                     url: 'https://api.newgroundsradio.com/v1/status',
                     parse: 'json',
                 })
-            ).body as radio.status
+            ).body as radio.response
         ).data
 
         const isLive = response.is_live

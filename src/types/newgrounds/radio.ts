@@ -1,4 +1,4 @@
-export type status = {
+export type response = {
     status: string
     data: {
         is_live: boolean
