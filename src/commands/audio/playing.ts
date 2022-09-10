@@ -18,12 +18,12 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     const guildId = interaction.guildId!
     const queue = distube.client.getQueue(guildId)
     if (await voice.userCheck(interaction, queue)) return
-    await interaction.deferReply({ ephemeral:true });
     if (
         queue?.songs[0].streamURL?.includes(
             'https://stream.newgroundsradio.com/'
         )
     ) {
+        await interaction.deferReply();
         const songInfo = (
             (
                 await phin({
@@ -71,7 +71,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
             ],
         })
     } else {
-        await interaction.editReply({
+        await interaction.reply({
             embeds: [
                 new embedBuilder()
                     .create(
