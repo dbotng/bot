@@ -24,7 +24,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         )
     ) {
         await interaction.deferReply();
-        const songInfo = (
+        const response = (
             (
                 await phin({
                     url: 'https://api.newgroundsradio.com/v1/status',
@@ -32,23 +32,19 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                 })
             ).body as radio.status
         ).data
-        const url = songInfo.title
+        const url = response.title
             .match(/\((https:\/\/).+\)/g)?.[0]
             .slice(1, -1)
 
-        const isLive = songInfo.is_live
+        const isLive = response.is_live
 
-        const title = isLive
-            ? songInfo.title.match(/[[LIVE\]: ]*([\w. ]+) \((\w+:\/\/[\w./-]+)\)/)
-            : songInfo.title.match(/- .+ /g)?.[0].slice(2, -1)
-        const author = isLive
-            ? undefined
-            : songInfo.title.match(/.+ -/g)?.[0].slice(0, -2)
+        const songInfo = isLive
+            ? response.title.match(/[[LIVE\]: ]*(.+) \((.+)\)/)
+            : response.title.match(/(.+) - (.+) \((.+\/([0-9]+))\)/)
         let thumbnail = isLive
             ? 'https://img.ngfiles.com/defaults/icon-audio.png'
-            : `https://aicon.ngfiles.com/${url
-                  ?.match(/[0-9]+/g)?.[0]
-                  .slice(0, -3)}/${url?.match(/[0-9]+/g)?.[0]}.png`
+            : `https://aicon.ngfiles.com/${songInfo?.[4]
+                  .slice(0, -3)}/${songInfo?.[4]}.png`
 
         if (thumbnail != 'https://img.ngfiles.com/defaults/icon-audio.png' && (await phin({ url: thumbnail })).statusCode != 200) {
             thumbnail = 'https://img.ngfiles.com/defaults/icon-audio.png'
@@ -60,8 +56,8 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                     .create(
                         isLive ? 'Live now' : 'Playing now',
                         isLive
-                            ? `[${title?.[1]}](${title?.[2]}) at Newgrounds Radio`
-                            : `[${title}](${url}) by [${author}](https://${author}.newgrounds.com) at Newgrounds Radio`
+                            ? `[${songInfo?.[1]}](${songInfo?.[2]}) at Newgrounds Radio`
+                            : `[${songInfo?.[2]}](${songInfo?.[3]}) by [${songInfo?.[1]}](https://${songInfo?.[1]}.newgrounds.com) at Newgrounds Radio`
                     )
                     .addFields({
                         name: 'Requested by',
