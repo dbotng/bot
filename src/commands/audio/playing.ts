@@ -23,7 +23,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
             'https://stream.newgroundsradio.com/'
         )
     ) {
-        await interaction.deferReply();
+        await interaction.deferReply()
         const response = (
             (
                 await phin({
@@ -32,9 +32,6 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                 })
             ).body as radio.status
         ).data
-        const url = response.title
-            .match(/\((https:\/\/).+\)/g)?.[0]
-            .slice(1, -1)
 
         const isLive = response.is_live
 
@@ -43,10 +40,14 @@ export async function execute(interaction: ChatInputCommandInteraction) {
             : response.title.match(/(.+) - (.+) \((.+\/([0-9]+))\)/)
         let thumbnail = isLive
             ? 'https://img.ngfiles.com/defaults/icon-audio.png'
-            : `https://aicon.ngfiles.com/${songInfo?.[4]
-                  .slice(0, -3)}/${songInfo?.[4]}.png`
+            : `https://aicon.ngfiles.com/${songInfo?.[4].slice(0, -3)}/${
+                  songInfo?.[4]
+              }.png`
 
-        if (thumbnail != 'https://img.ngfiles.com/defaults/icon-audio.png' && (await phin({ url: thumbnail })).statusCode != 200) {
+        if (
+            thumbnail != 'https://img.ngfiles.com/defaults/icon-audio.png' &&
+            (await phin({ url: thumbnail })).statusCode != 200
+        ) {
             thumbnail = 'https://img.ngfiles.com/defaults/icon-audio.png'
         }
 
