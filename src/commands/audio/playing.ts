@@ -23,6 +23,9 @@ export async function execute(interaction: ChatInputCommandInteraction) {
             'https://stream.newgroundsradio.com/'
         )
     ) {
+
+        await interaction.deferReply({ ephemeral:true });
+
         const songInfo = (
             (
                 await phin({
@@ -53,7 +56,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
             thumbnail = 'https://img.ngfiles.com/defaults/icon-audio.png'
         }
 
-        await interaction.reply({
+        await interaction.editReply({
             embeds: [
                 new embedBuilder()
                     .create(

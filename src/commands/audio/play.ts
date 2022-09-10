@@ -53,7 +53,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     ) {
         distube.client.stop(guildId)
     } else {
-        await interaction.deferReply()
+        await interaction.deferReply({ ephemeral:true });
         distube.client
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             .play(member.voice.channel!, link, {
