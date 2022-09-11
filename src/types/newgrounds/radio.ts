@@ -4,13 +4,13 @@ export type response = {
         artist: string
         audio_id: bigint
         listen_url: string
+        live: boolean
         on_air_at: bigint
         replay_gain: string
         listeners: bigint
-        live: boolean
         is_live: boolean //fallback
         title: string
-        totalListeners: string //fallback
         uptime: bigint
+        totalListeners: string //fallback
     }
 }
