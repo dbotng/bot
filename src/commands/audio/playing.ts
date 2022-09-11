@@ -33,7 +33,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
             ).body as radio.response
         ).data
 
-        const isLive = response.is_live
+        const isLive = response.live ? response.live : response.is_live
 
         const songInfo = isLive
             ? response.title.match(/[[LIVE\]: ]*(.+) \((.+)\)/)
