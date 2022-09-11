@@ -41,7 +41,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         
         let thumbnail = isLive
             ? 'https://img.ngfiles.com/defaults/icon-audio.png'
-            : `https://aicon.ngfiles.com/${response.audio_id.slice(0, -3)}/${
+            : `https://aicon.ngfiles.com/${response.audio_id.toString().slice(0, -3)}/${
                   response.audio_id
               }.png`
 
