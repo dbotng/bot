@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2022.9.11.0](https://github.com/dbotng/bot/compare/v2022.9.6...v2022.9.11.0) (2022-09-11)
+
+
+### Bug Fixes
+
+* added new radio responses ([1212d33](https://github.com/dbotng/bot/commit/1212d337c74824b4aad6f694c4c4ad9ee8881c69))
+* better looking live embeds ([8545f77](https://github.com/dbotng/bot/commit/8545f77a9195a4c9dd4d0b4be1f4ba2f8b2670d8))
+* change to undefined ([d454a58](https://github.com/dbotng/bot/commit/d454a5851b6c1da7de87febba90a5ad13a7794d8))
+* check if command is replied to prevent issues ([7f5a9b4](https://github.com/dbotng/bot/commit/7f5a9b4d66cdcd8c44a5c300278a8f035fa21539))
+* defer reply not working ([1e31caf](https://github.com/dbotng/bot/commit/1e31cafcc179e5f4a551c0d907928a71e9e252b0))
+* defer reply on radio playing command ([581c0c0](https://github.com/dbotng/bot/commit/581c0c0653e62ee7573e9a7635d77776bf4a959e))
+* deferreply not working ([67d0105](https://github.com/dbotng/bot/commit/67d010576fcb247983974e4a6a57a9a6db4a8e3a))
+* fix issues relating to radio mode + removed debug msg ([c9fe9e6](https://github.com/dbotng/bot/commit/c9fe9e68b48fc505be1b4ef6c6433d1586335f52))
+* fix replied interaction errors ([a6a1fcc](https://github.com/dbotng/bot/commit/a6a1fcc1bed6b885282e085dd5ec37cbe7ecd091))
+* fix user fetch command erroring ([ea2dbc4](https://github.com/dbotng/bot/commit/ea2dbc448f445f057e0c81ea80518b474d24b87e))
+* fixing deploy commands failed ([362f835](https://github.com/dbotng/bot/commit/362f835dab5de92e9aa62122f546c38ff2a0644f))
+* issues with confusing live mode with playing mode on radio mode ([7df9b01](https://github.com/dbotng/bot/commit/7df9b019e21973af7be1764bff33e8ce5e9ba171))
+* radio live mode support on embed ([642c6ae](https://github.com/dbotng/bot/commit/642c6ae1a72f0cb9b762dab4affd16dbf7e83e83))
+* update invite ([13587ca](https://github.com/dbotng/bot/commit/13587ca79bfbaf582c1ef310fa09ba458d040c52))
+* updated the playing embed ([da72f82](https://github.com/dbotng/bot/commit/da72f82cb3c149f529baf68912f47d45a4b30b4c))
+
 ## [2022.9.10.1](https://github.com/dbotng/bot/compare/v2022.9.6...v2022.9.10.1) (2022-09-10)
 
 
