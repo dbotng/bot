@@ -33,15 +33,16 @@ export async function execute(interaction: ChatInputCommandInteraction) {
             ).body as radio.response
         ).data
 
-        const isLive = response.live ? response.live : response.is_live
+        const isLive = response.live
 
-        const songInfo = isLive
+        const liveTitle = isLive
             ? response.title.match(/[[LIVE\]: ]*(.+) \((.+)\)/)
-            : response.title.match(/(.+) - (.+) \((.+\/([0-9]+))\)/)
+            : undefined
+        
         let thumbnail = isLive
             ? 'https://img.ngfiles.com/defaults/icon-audio.png'
-            : `https://aicon.ngfiles.com/${songInfo?.[4].slice(0, -3)}/${
-                  songInfo?.[4]
+            : `https://aicon.ngfiles.com/${response.audio_id.slice(0, -3)}/${
+                  response.audio_id
               }.png`
 
         if (
@@ -57,8 +58,8 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                     .create(
                         isLive ? 'Live now' : 'Playing now',
                         isLive
-                            ? `[${songInfo?.[1]}](${songInfo?.[2]}) at Newgrounds Radio`
-                            : `[${songInfo?.[2]}](${songInfo?.[3]}) by [${songInfo?.[1]}](https://${songInfo?.[1]}.newgrounds.com) at Newgrounds Radio`
+                            ? `[${liveTitle?.[1]}](${liveTitle?.[2]}) at Newgrounds Radio`
+                            : `[${response.title}](${response.listen_url}) by [${response.artist}](https://${response.artist}.newgrounds.com) at Newgrounds Radio`
                     )
                     .addFields({
                         name: 'Requested by',
