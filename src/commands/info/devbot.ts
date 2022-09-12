@@ -14,7 +14,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     await interaction.reply({
         embeds: [
             new embedBuilder().create(
-                'D-bot dev',
+                'D-Bot dev',
                 'Do you like testing for new features? If so click on the [link](https://discord.gg/nSdQyfZd3s) to try out new stuff!'
             ),
         ],

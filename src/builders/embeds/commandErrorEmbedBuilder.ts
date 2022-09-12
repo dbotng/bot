@@ -5,7 +5,7 @@ export default class extends embedBuilder {
         return super
             .create(
                 ':(',
-                'D-bot ran into a problem and needs to restart. Nah just joking! If issue still persists please screenshot the error message and open a Github issue.'
+                'D-Bot ran into a problem and needs to restart. Nah just joking! If issue still persists please screenshot the error message and open a Github issue.'
             )
             .addFields({ name: 'Error message', value: error })
     }

@@ -14,7 +14,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     const embed = new embedBuilder()
         .create(
             'Bot information',
-            'Here are the basic information about D-bot, and other related stuff.'
+            'Here are the basic information about D-Bot, and other related stuff.'
         )
         .addFields(
             {
