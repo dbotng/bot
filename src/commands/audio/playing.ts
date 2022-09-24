@@ -36,14 +36,16 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         const isLive = response.live
 
         const liveTitle = isLive
-            ? response.title.match(/[[LIVE\]: ]*(.+) \((.+)\)/)
+            ? response.title
+                ? response.title.match(/[[LIVE\]: ]*(.+) \((.+)\)/)
+                : ['', 'We are live!', 'https://discord.gg/ngp']
             : undefined
-        
+
         let thumbnail = isLive
             ? 'https://img.ngfiles.com/defaults/icon-audio.png'
-            : `https://aicon.ngfiles.com/${response.audio_id.toString().slice(0, -3)}/${
-                  response.audio_id
-              }.png`
+            : `https://aicon.ngfiles.com/${response.audio_id
+                  .toString()
+                  .slice(0, -3)}/${response.audio_id}.png`
 
         if (
             thumbnail != 'https://img.ngfiles.com/defaults/icon-audio.png' &&
