@@ -13,10 +13,6 @@ export const data = new SlashCommandBuilder()
 
 export async function execute(interaction: ChatInputCommandInteraction) {
     switch (interaction.options.getSubcommand()) {
-        case 'devbot': {
-            await devbot.execute(interaction)
-            break
-        }
         case 'bot': {
             await bot.execute(interaction)
             break

@@ -35,7 +35,7 @@ async function sendEmbed(channel: NonThreadGuildBasedChannel | undefined) {
             embeds: [
                 new embedBuilder()
                     .create(
-                        'Thank you for inviting D-Bot!',
+                        'Thank you for inviting TankBot!',
                         'You can check out the commands by typing / in the textbox and mess around with the bot!'
                     )
                     .addFields({
