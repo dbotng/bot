@@ -10,7 +10,6 @@ import {
 } from 'discord.js'
 import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
 import 'dotenv/config'
-import phin from 'phin'
 import { response as NGResponse } from '@tankbot/types/newgrounds/responses.js'
 import userErrorEmbedBuilder from '@tankbot/builders/embeds/userErrorEmbedBuilder.js'
 import commandSuccessEmbedBuilder from '@tankbot/builders/embeds/commandSuccessEmbedBuilder.js'
@@ -27,7 +26,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         params: { force: true },
     })
 
-    const sessionId = (sessionStartResult as NGResponse).result.data.session.id
+    const sessionId = (sessionStartResult as unknown as NGResponse).result.data.session.id
 
     const filter = (button: MessageComponentInteraction) => {
         button.deferUpdate()
@@ -53,7 +52,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                         },
                         {
                             name: 'Source code',
-                            value: '[Link](https://github.com/dbotng/bot)',
+                            value: '[Link](https://github.com/ngtankbot/bot)',
                         }
                     ),
             ],
@@ -179,15 +178,14 @@ async function ngPostData(options: {
         },
     }
     return (
-        await phin({
-            url: 'https://www.newgrounds.io/gateway_v3.php',
+        await fetch('https://www.newgrounds.io/gateway_v3.php', {
             method: 'POST',
-            parse: 'json',
-            form: {
-                input: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
             },
+            body: JSON.stringify(data),
         })
-    ).body
+    ).json
 }
 
 type paramOptions = {

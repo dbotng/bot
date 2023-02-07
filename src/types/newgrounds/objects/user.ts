@@ -1,7 +1,7 @@
-import userIcons from '@tankbot/types/newgrounds/objects/userIcons.js'
+import imageThumb from '@tankbot/types/newgrounds/objects/imageThumb.js'
 
 export default interface ngUser {
-    icons: userIcons
+    icons: imageThumb
     id: bigint
     name: string
     supporter: true

@@ -4,10 +4,10 @@ import {
 } from 'discord.js'
 import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
 import * as distube from '@tankbot/clients/distube.js'
-import phin from 'phin'
 
 import * as voice from '@tankbot/util/voice.js'
 import * as radio from '@tankbot/types/newgrounds/radio.js'
+import * as feed from '@tankbot/types/newgrounds/audioFeed.js'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('playing')
@@ -24,35 +24,30 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         )
     ) {
         await interaction.deferReply()
-        const response = (
-            (
-                await phin({
-                    url: 'https://api.newgroundsradio.com/v1/status',
-                    parse: 'json',
-                })
-            ).body as radio.response
+        const radioResponse = (
+            (await fetch('https://api.newgroundsradio.com/v1/status'))
+                .json as unknown as radio.response
         ).data
 
-        const isLive = response.live
+        const isLive = radioResponse.live
+
+        const feedResponse = isLive
+            ? undefined
+            : ((
+                  await fetch(
+                      `https://www.newgrounds.com/audio/feed/${radioResponse.audio_id}`
+                  )
+              ).json as unknown as feed.response)
 
         const liveTitle = isLive
-            ? response.title
-                ? response.title.match(/[[LIVE\]: ]*(.+) \((.+)\)/)
+            ? radioResponse.title
+                ? radioResponse.title.match(/[[LIVE\]: ]*(.+) \((.+)\)/)
                 : ['', 'We are live!', 'https://discord.gg/ngp']
             : undefined
 
-        let thumbnail = isLive
+        const thumbnail = !feedResponse
             ? 'https://img.ngfiles.com/defaults/icon-audio.png'
-            : `https://aicon.ngfiles.com/${response.audio_id
-                  .toString()
-                  .slice(0, -3)}/${response.audio_id}.png`
-
-        if (
-            thumbnail != 'https://img.ngfiles.com/defaults/icon-audio.png' &&
-            (await phin({ url: thumbnail })).statusCode != 200
-        ) {
-            thumbnail = 'https://img.ngfiles.com/defaults/icon-audio.png'
-        }
+            : feedResponse.icons.large
 
         await interaction.editReply({
             embeds: [
@@ -61,7 +56,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                         isLive ? 'Live now' : 'Playing now',
                         isLive
                             ? `[${liveTitle?.[1]}](${liveTitle?.[2]}) at Newgrounds Radio`
-                            : `[${response.title}](${response.listen_url}) by [${response.artist}](https://${response.artist}.newgrounds.com) at Newgrounds Radio`
+                            : `[${feedResponse?.title}](${feedResponse?.url}) by [${feedResponse?.authors[0].name}](https://${feedResponse?.authors[0].id}.newgrounds.com) at Newgrounds Radio`
                     )
                     .addFields({
                         name: 'Requested by',
