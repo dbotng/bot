@@ -1,4 +1,4 @@
-# D-bot
+# TankBot
 
 An awesome Newgrounds Discord bot that has working audio support.
 
@@ -8,8 +8,8 @@ I'm not good at JS yet, still a beginner, and currently using linting and shit t
 
 ## Contributions
 
-Contributions are very much welcome, newgrounds is about everything by everyone so why not help each other out?
+Contributions are very much welcome, Newgrounds is about everything by everyone so why not help each other out?
 
 ## Invite link
 
-https://discord.com/api/oauth2/authorize?client_id=909375750753361980&permissions=17585720640&scope=bot%20applications.commands
+https://discord.com/api/oauth2/authorize?client_id=909375750753361980&permissions=275283823936&scope=bot%20applications.commands
