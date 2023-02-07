@@ -14,7 +14,7 @@
         "start": "node dist/index.js",
         "deploy": "node dist/deploy.js",
         "bump": "bumpver update",
-        "release": "standard-version --skip.bump --tag-prefix=''"
+        "release": "standard-version --skip.bump --tag-prefix=\"\""
     },
     "repository": {
         "type": "git",
