@@ -1,5 +1,5 @@
-import * as discordjs from '@d-bot/clients/discordjs.js'
-import * as distube from '@d-bot/clients/distube.js'
+import * as discordjs from '@tankbot/clients/discordjs.js'
+import * as distube from '@tankbot/clients/distube.js'
 import 'dotenv/config'
 import SegfaultHandler from 'segfault-handler'
 

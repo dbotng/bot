@@ -3,8 +3,8 @@ import {
     Interaction,
     InteractionType,
 } from 'discord.js'
-import * as cooldown from '@d-bot/util/cooldown.js'
-import commandErrorEmbedBuilder from '@d-bot/builders/embeds/commandErrorEmbedBuilder.js'
+import * as cooldown from '@tankbot/util/cooldown.js'
+import commandErrorEmbedBuilder from '@tankbot/builders/embeds/commandErrorEmbedBuilder.js'
 
 export const name = 'interactionCreate'
 

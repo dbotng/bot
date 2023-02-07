@@ -4,9 +4,9 @@ import {
     SlashCommandSubcommandBuilder,
     SlashCommandUserOption,
 } from 'discord.js'
-import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
-import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
-import prisma from '@d-bot/clients/prisma.js'
+import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
+import userErrorEmbedBuilder from '@tankbot/builders/embeds/userErrorEmbedBuilder.js'
+import prisma from '@tankbot/clients/prisma.js'
 import { discordUser, newgroundsUser, Prisma } from '@prisma/client'
 
 export const data = new SlashCommandSubcommandBuilder()

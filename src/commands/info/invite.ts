@@ -2,7 +2,7 @@ import {
     ChatInputCommandInteraction,
     SlashCommandSubcommandBuilder,
 } from 'discord.js'
-import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
+import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
 import { fileURLToPath } from 'url'
 
 export const data = new SlashCommandSubcommandBuilder()

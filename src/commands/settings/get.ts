@@ -2,8 +2,8 @@ import {
     ChatInputCommandInteraction,
     SlashCommandSubcommandBuilder,
 } from 'discord.js'
-import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
-import prisma from '@d-bot/clients/prisma.js'
+import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
+import prisma from '@tankbot/clients/prisma.js'
 import { Prisma, servers } from '@prisma/client'
 
 export const data = new SlashCommandSubcommandBuilder()

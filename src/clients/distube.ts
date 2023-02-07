@@ -1,5 +1,5 @@
 import { DisTube } from 'distube'
-import * as discordjs from '@d-bot/clients/discordjs.js'
+import * as discordjs from '@tankbot/clients/discordjs.js'
 import fs from 'fs'
 import { YtDlpPlugin } from '@distube/yt-dlp'
 import { fileURLToPath } from 'url'

@@ -1,12 +1,12 @@
 import { ChatInputCommandInteraction, GuildMember } from 'discord.js'
 import humanizeDuration from 'humanize-duration'
-import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
+import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
 
 const cooldown = global.cooldown
 
 const shouldElapse = 10000
 
-import prisma from '@d-bot/clients/prisma.js'
+import prisma from '@tankbot/clients/prisma.js'
 import { Prisma, servers } from '@prisma/client'
 
 async function whitelist(interaction: ChatInputCommandInteraction) {

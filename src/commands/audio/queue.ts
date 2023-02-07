@@ -2,10 +2,10 @@ import {
     ChatInputCommandInteraction,
     SlashCommandSubcommandBuilder,
 } from 'discord.js'
-import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
-import * as distube from '@d-bot/clients/distube.js'
+import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
+import * as distube from '@tankbot/clients/distube.js'
 
-import * as voice from '@d-bot/util/voice.js'
+import * as voice from '@tankbot/util/voice.js'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('queue')

@@ -1,8 +1,8 @@
 import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js'
 
-import * as get from '@d-bot/commands/settings/get.js'
-import * as cooldown from '@d-bot/commands/settings/cooldown.js'
-import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
+import * as get from '@tankbot/commands/settings/get.js'
+import * as cooldown from '@tankbot/commands/settings/cooldown.js'
+import userErrorEmbedBuilder from '@tankbot/builders/embeds/userErrorEmbedBuilder.js'
 
 export const data = new SlashCommandBuilder()
     .setName('settings')

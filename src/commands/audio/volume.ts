@@ -3,10 +3,10 @@ import {
     SlashCommandNumberOption,
     SlashCommandSubcommandBuilder,
 } from 'discord.js'
-import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
-import * as distube from '@d-bot/clients/distube.js'
+import commandSuccessEmbedBuilder from '@tankbot/builders/embeds/commandSuccessEmbedBuilder.js'
+import * as distube from '@tankbot/clients/distube.js'
 
-import * as voice from '@d-bot/util/voice.js'
+import * as voice from '@tankbot/util/voice.js'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('volume')

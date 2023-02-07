@@ -1,6 +1,6 @@
 import { ChatInputCommandInteraction } from 'discord.js'
 import { Queue, Song } from 'distube'
-import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
+import commandSuccessEmbedBuilder from '@tankbot/builders/embeds/commandSuccessEmbedBuilder.js'
 
 export const name = 'addSong'
 

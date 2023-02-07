@@ -4,9 +4,9 @@ import {
     SlashCommandStringOption,
     SlashCommandSubcommandBuilder,
 } from 'discord.js'
-import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
-import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
-import prisma from '@d-bot/clients/prisma.js'
+import commandSuccessEmbedBuilder from '@tankbot/builders/embeds/commandSuccessEmbedBuilder.js'
+import userErrorEmbedBuilder from '@tankbot/builders/embeds/userErrorEmbedBuilder.js'
+import prisma from '@tankbot/clients/prisma.js'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('commands')

@@ -1,4 +1,4 @@
-import user from '@d-bot/types/newgrounds/objects/user.js'
+import user from '@tankbot/types/newgrounds/objects/user.js'
 
 export interface response {
     success: boolean

@@ -1,13 +1,11 @@
 import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js'
 
-import * as devbot from '@d-bot/commands/info/devbot.js'
-import * as bot from '@d-bot/commands/info/bot.js'
-import * as invite from '@d-bot/commands/info/invite.js'
+import * as bot from '@tankbot/commands/info/bot.js'
+import * as invite from '@tankbot/commands/info/invite.js'
 
 export const data = new SlashCommandBuilder()
     .setName('info')
     .setDescription('Information commands')
-    .addSubcommand(devbot.data)
     .addSubcommand(bot.data)
     .addSubcommand(invite.data)
 

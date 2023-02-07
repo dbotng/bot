@@ -8,13 +8,13 @@ import {
     ComponentType,
     ButtonStyle,
 } from 'discord.js'
-import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
+import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
 import 'dotenv/config'
 import phin from 'phin'
-import { response as NGResponse } from '@d-bot/types/newgrounds/responses.js'
-import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
-import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
-import prisma from '@d-bot/clients/prisma.js'
+import { response as NGResponse } from '@tankbot/types/newgrounds/responses.js'
+import userErrorEmbedBuilder from '@tankbot/builders/embeds/userErrorEmbedBuilder.js'
+import commandSuccessEmbedBuilder from '@tankbot/builders/embeds/commandSuccessEmbedBuilder.js'
+import prisma from '@tankbot/clients/prisma.js'
 import { Prisma } from '@prisma/client'
 
 export const data = new SlashCommandSubcommandBuilder()

@@ -3,8 +3,8 @@ import {
     SlashCommandSubcommandGroupBuilder,
 } from 'discord.js'
 
-import * as time from '@d-bot/commands/settings/cooldown/time.js'
-import * as commands from '@d-bot/commands/settings/cooldown/commands.js'
+import * as time from '@tankbot/commands/settings/cooldown/time.js'
+import * as commands from '@tankbot/commands/settings/cooldown/commands.js'
 
 export const data = new SlashCommandSubcommandGroupBuilder()
     .setName('cooldown')

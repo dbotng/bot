@@ -1,4 +1,4 @@
-import prisma from '@d-bot/clients/prisma.js'
+import prisma from '@tankbot/clients/prisma.js'
 import {
     ChatInputCommandInteraction,
     SlashCommandNumberOption,
@@ -6,7 +6,7 @@ import {
 } from 'discord.js'
 
 import { Prisma, servers } from '@prisma/client'
-import commandSuccessEmbedBuilder from '@d-bot/builders/embeds/commandSuccessEmbedBuilder.js'
+import commandSuccessEmbedBuilder from '@tankbot/builders/embeds/commandSuccessEmbedBuilder.js'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('time')

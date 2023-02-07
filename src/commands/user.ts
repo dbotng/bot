@@ -1,8 +1,8 @@
 import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js'
 
-import * as connect from '@d-bot/commands/user/connect.js'
-import * as disconnect from '@d-bot/commands/user/disconnect.js'
-import * as fetch from '@d-bot/commands/user/fetch.js'
+import * as connect from '@tankbot/commands/user/connect.js'
+import * as disconnect from '@tankbot/commands/user/disconnect.js'
+import * as fetch from '@tankbot/commands/user/fetch.js'
 
 export const data = new SlashCommandBuilder()
     .setName('user')

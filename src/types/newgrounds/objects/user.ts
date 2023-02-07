@@ -1,4 +1,4 @@
-import userIcons from '@d-bot/types/newgrounds/objects/userIcons.js'
+import userIcons from '@tankbot/types/newgrounds/objects/userIcons.js'
 
 export default interface ngUser {
     icons: userIcons

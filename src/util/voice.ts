@@ -1,6 +1,6 @@
 import { ChatInputCommandInteraction, GuildMember } from 'discord.js'
 import { Queue } from 'distube'
-import userErrorEmbedBuilder from '@d-bot/builders/embeds/userErrorEmbedBuilder.js'
+import userErrorEmbedBuilder from '@tankbot/builders/embeds/userErrorEmbedBuilder.js'
 
 export async function userCheck(
     interaction: ChatInputCommandInteraction,

@@ -3,7 +3,7 @@ import {
     SlashCommandSubcommandBuilder,
 } from 'discord.js'
 import humanizeDuration from 'humanize-duration'
-import embedBuilder from '@d-bot/builders/embeds/embedBuilder.js'
+import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
 import 'dotenv/config'
 
 export const data = new SlashCommandSubcommandBuilder()
@@ -28,11 +28,11 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                     )} users and probably growing.\nBot is up for ${humanizeDuration(
                     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                     interaction.client.uptime!
-                )}. \nRunning version ${process.env.version}`,
+                )}. \nRunning version ${process.env.npm_package_version}`,
             },
             {
                 name: 'Creator info and links',
-                value: 'Created by Featyre#0843\n[Github repo](https://github.com/dbotng/bot)',
+                value: 'Created by Bread#0012\n[Github repo](https://github.com/ngtankbot/bot)',
             }
         )
     await interaction.reply({ embeds: [embed] })

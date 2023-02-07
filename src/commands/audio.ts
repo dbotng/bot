@@ -1,15 +1,15 @@
 import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js'
 
-import * as play from '@d-bot/commands/audio/play.js'
-import * as radio from '@d-bot/commands/audio/radio.js'
-import * as pause from '@d-bot/commands/audio/pause.js'
-import * as skip from '@d-bot/commands/audio/skip.js'
-import * as stop from '@d-bot/commands/audio/stop.js'
-import * as leave from '@d-bot/commands/audio/leave.js'
-import * as volume from '@d-bot/commands/audio/volume.js'
-import * as repeat from '@d-bot/commands/audio/repeat.js'
-import * as playing from '@d-bot/commands/audio/playing.js'
-import * as queue from '@d-bot/commands/audio/queue.js'
+import * as play from '@tankbot/commands/audio/play.js'
+import * as radio from '@tankbot/commands/audio/radio.js'
+import * as pause from '@tankbot/commands/audio/pause.js'
+import * as skip from '@tankbot/commands/audio/skip.js'
+import * as stop from '@tankbot/commands/audio/stop.js'
+import * as leave from '@tankbot/commands/audio/leave.js'
+import * as volume from '@tankbot/commands/audio/volume.js'
+import * as repeat from '@tankbot/commands/audio/repeat.js'
+import * as playing from '@tankbot/commands/audio/playing.js'
+import * as queue from '@tankbot/commands/audio/queue.js'
 
 export const data = new SlashCommandBuilder()
     .setName('audio')

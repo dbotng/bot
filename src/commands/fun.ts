@@ -1,6 +1,6 @@
 import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js'
 
-import * as echo from '@d-bot/commands/fun/echo.js'
+import * as echo from '@tankbot/commands/fun/echo.js'
 
 export const data = new SlashCommandBuilder()
     .setName('fun')
