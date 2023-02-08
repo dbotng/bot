@@ -18,7 +18,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/tankbot/bot.git"
+        "url": "git+https://github.com/ngtankbot/bot.git"
     },
     "keywords": [
         "discord",
@@ -27,9 +27,9 @@
     "author": "Breadlike",
     "license": "AGPL-3.0-or-later",
     "bugs": {
-        "url": "https://github.com/tankbot/bot/issues"
+        "url": "https://github.com/ngtankbot/bot/issues"
     },
-    "homepage": "https://github.com/tankbot/bot#readme",
+    "homepage": "https://github.com/ngtankbot/bot#readme",
     "devDependencies": {
         "@types/humanize-duration": "^3.27.1",
         "@types/node": "^18.13.0",
