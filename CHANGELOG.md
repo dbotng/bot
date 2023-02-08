@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2023.2.3](https://github.com/ngtankbot/bot/compare/2023.2.2...2023.2.3) (2023-02-08)
+
+
+### Bug Fixes
+
+* double check if server is in database ([4a7c0c9](https://github.com/ngtankbot/bot/commit/4a7c0c94f3894bba00548f8398253182b30d9dff))
+* update prisma schema ([37a788e](https://github.com/ngtankbot/bot/commit/37a788e87b0f70b132ce36ba4f57734d3b2f8166))
+
 ## [2023.2.2](https://github.com/tankbot/bot/compare/v2022.9.6...v2023.2.2) (2023-02-08)
 
 
