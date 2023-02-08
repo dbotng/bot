@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2023.2.4](https://github.com/ngtankbot/bot/compare/2023.2.3...2023.2.4) (2023-02-08)
+
+
+### Bug Fixes
+
+* fix code blocking interaction ([14577f0](https://github.com/ngtankbot/bot/commit/14577f03360c21b384c34d673aba562263a5be9f))
+
 ## [2023.2.3](https://github.com/ngtankbot/bot/compare/2023.2.2...2023.2.3) (2023-02-08)
 
 
