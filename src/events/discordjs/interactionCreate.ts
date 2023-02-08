@@ -18,7 +18,7 @@ export async function execute(interaction: Interaction) {
 
     if (!command) return
 
-    if (await createDatabase.interactionPreCreate(interaction as ChatInputCommandInteraction)) return
+    await createDatabase.interactionPreCreate(interaction as ChatInputCommandInteraction)
 
     if (await cooldown.check(interaction as ChatInputCommandInteraction)) return
 

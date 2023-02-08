@@ -11,9 +11,8 @@ export async function interactionPreCreate (interaction: ChatInputCommandInterac
         databaseCreate(interaction.guild)
     }
     if (server) {
-        return true
+        return
     }
-    return false
 }
 
 export async function databaseCreate (guild: Guild) {
