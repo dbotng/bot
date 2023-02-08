@@ -12,7 +12,6 @@ export const data = new SlashCommandBuilder()
     .addSubcommand(fetch.data)
 
 export async function execute(interaction: ChatInputCommandInteraction) {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     switch (interaction.options.getSubcommand()) {
         case 'connect': {
             connect.execute(interaction)

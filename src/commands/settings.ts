@@ -21,7 +21,6 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         })
         return
     }
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     switch (interaction.options.getSubcommand()) {
         case 'get': {
             await get.execute(interaction)
