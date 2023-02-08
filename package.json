@@ -1,6 +1,6 @@
 {
     "name": "tankbot",
-    "version": "2023.2.7.0",
+    "version": "2023.2.1",
     "description": "Awesome Newgrounds bot",
     "private": true,
     "exports": "./dist/index.js",
