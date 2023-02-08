@@ -1,19 +1,14 @@
 import { ChannelType, PermissionFlagsBits } from 'discord-api-types/v10'
 import { Guild, NonThreadGuildBasedChannel, TextChannel } from 'discord.js'
 import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
-import prisma from '@tankbot/clients/prisma.js'
+import * as createDatabase from '@tankbot/util/createDatabase.js'
 
 export const name = 'guildCreate'
 
 export const once = false
 
 export async function execute(guild: Guild) {
-    await prisma.servers.create({
-        data: {
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            id: BigInt(guild.id!),
-        },
-    })
+    await createDatabase.databaseCreate(guild)
     guild.channels.fetch().then((channels) => {
         sendEmbed(channels?.filter(channelFilter).first())
     })

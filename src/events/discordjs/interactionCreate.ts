@@ -4,6 +4,7 @@ import {
     InteractionType,
 } from 'discord.js'
 import * as cooldown from '@tankbot/util/cooldown.js'
+import * as createDatabase from '@tankbot/util/createDatabase.js'
 import commandErrorEmbedBuilder from '@tankbot/builders/embeds/commandErrorEmbedBuilder.js'
 
 export const name = 'interactionCreate'
@@ -16,6 +17,8 @@ export async function execute(interaction: Interaction) {
     const command = interaction.client.commands.get(interaction.commandName)
 
     if (!command) return
+
+    if (await createDatabase.interactionPreCreate(interaction as ChatInputCommandInteraction)) return
 
     if (await cooldown.check(interaction as ChatInputCommandInteraction)) return
 
