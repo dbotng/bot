@@ -1,6 +1,6 @@
-import user from '@tankbot/types/newgrounds/objects/user.js'
+import baseUser from '@tankbot/types/newgrounds/types/baseUser.js'
 
-export interface response {
+export type response = {
     success: boolean
     app_id: string
     result: {
@@ -18,10 +18,14 @@ export interface response {
     }
 }
 
-interface sessionData {
+type sessionData = {
     expired: boolean
     id: string
     passport_url: string
     remember: boolean
     user: user | null
+}
+
+type user = baseUser & {
+    supporter: boolean
 }

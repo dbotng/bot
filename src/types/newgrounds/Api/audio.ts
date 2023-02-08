@@ -1,4 +1,5 @@
-import imageThumb from '@tankbot/types/newgrounds/objects/imageThumb.js'
+import imageThumbs from '@tankbot/types/newgrounds/types/imageThumbs.js'
+import baseUser from '@tankbot/types/newgrounds/types/baseUser.js'
 
 export type response = {
     id: bigint,
@@ -7,7 +8,7 @@ export type response = {
     download_url: string,
     stream_url: string,
     filesize: string,
-    icons: imageThumb,
+    icons: imageThumbs,
     authors: authors[],
     has_scouts: boolean,
     unpublished: boolean,
@@ -16,11 +17,8 @@ export type response = {
     allow_external_api: boolean
 }
 
-type authors = {
-    id: bigint,
-    name: string,
+type authors = baseUser & {
     url: string,
-    icons: imageThumb,
     owner: boolean,
     manager: boolean,
     is_scout: boolean

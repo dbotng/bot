@@ -6,8 +6,8 @@ import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
 import * as distube from '@tankbot/clients/distube.js'
 
 import * as voice from '@tankbot/util/voice.js'
-import * as radio from '@tankbot/types/newgrounds/radio.js'
-import * as feed from '@tankbot/types/newgrounds/audioFeed.js'
+import * as radio from '@tankbot/types/newgrounds/Api/radio.js'
+import * as feed from '@tankbot/types/newgrounds/Api/audio.js'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('playing')
@@ -25,19 +25,20 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     ) {
         await interaction.deferReply()
         const radioResponse = (
-            (await fetch('https://api.newgroundsradio.com/v1/status'))
-                .json as unknown as radio.response
+            (await (
+                await fetch('https://api.newgroundsradio.com/v1/status')
+            ).json()) as radio.response
         ).data
 
         const isLive = radioResponse.live
 
         const feedResponse = isLive
             ? undefined
-            : ((
+            : ((await (
                   await fetch(
                       `https://www.newgrounds.com/audio/feed/${radioResponse.audio_id}`
                   )
-              ).json as unknown as feed.response)
+              ).json()) as feed.response)
 
         const liveTitle = isLive
             ? radioResponse.title

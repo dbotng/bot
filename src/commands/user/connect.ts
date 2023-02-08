@@ -10,7 +10,7 @@ import {
 } from 'discord.js'
 import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
 import 'dotenv/config'
-import { response as NGResponse } from '@tankbot/types/newgrounds/responses.js'
+import { response as NGResponse } from '@tankbot/types/newgrounds/ioApi/response.js'
 import userErrorEmbedBuilder from '@tankbot/builders/embeds/userErrorEmbedBuilder.js'
 import commandSuccessEmbedBuilder from '@tankbot/builders/embeds/commandSuccessEmbedBuilder.js'
 import prisma from '@tankbot/clients/prisma.js'
@@ -26,7 +26,8 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         params: { force: true },
     })
 
-    const sessionId = (sessionStartResult as unknown as NGResponse).result.data.session.id
+    const sessionId = (sessionStartResult as NGResponse).result.data
+        .session.id
 
     const filter = (button: MessageComponentInteraction) => {
         button.deferUpdate()
@@ -60,8 +61,8 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                 new ActionRowBuilder<ButtonBuilder>().addComponents(
                     new ButtonBuilder()
                         .setURL(
-                            (sessionStartResult as NGResponse).result.data
-                                .session.passport_url
+                            (sessionStartResult as NGResponse).result
+                                .data.session.passport_url
                         )
                         .setLabel('Login to Newgrounds')
                         .setStyle(ButtonStyle.Link),
@@ -88,8 +89,8 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                                 session_id: sessionId,
                             })
                             if (
-                                !(sessionCheckResult as NGResponse).result.data
-                                    .session.user
+                                !(sessionCheckResult as NGResponse)
+                                    .result.data.session.user
                             ) {
                                 await interaction.editReply({
                                     embeds: [
@@ -101,8 +102,9 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                                 })
                             } else {
                                 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                                const user = (sessionCheckResult as NGResponse)
-                                    .result.data.session.user!
+                                const user = (
+                                    sessionCheckResult as NGResponse
+                                ).result.data.session.user!
                                 await prisma.newgroundsUser.create({
                                     data: {
                                         id: user.id,
@@ -177,7 +179,7 @@ async function ngPostData(options: {
             parameters: options.params,
         },
     }
-    return (
+    return await (
         await fetch('https://www.newgrounds.io/gateway_v3.php', {
             method: 'POST',
             headers: {
@@ -185,7 +187,7 @@ async function ngPostData(options: {
             },
             body: JSON.stringify(data),
         })
-    ).json
+    ).json()
 }
 
 type paramOptions = {
