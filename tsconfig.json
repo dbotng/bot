@@ -2,10 +2,11 @@
     "compilerOptions": {
         "target": "ESNext",
         "module": "NodeNext",
-        "rootDir": "./src",
-        "baseUrl": "./src",
+        "rootDir": ".",
+        "baseUrl": ".",
         "paths": {
-            "@tankbot/*": ["*"]
+            "@tankbot/*": ["./src/*"],
+            "@tankbot/package.json": ["./package.json"]
         },
         "resolveJsonModule": true,
         "outDir": "./dist",

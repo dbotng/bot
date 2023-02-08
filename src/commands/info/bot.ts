@@ -5,6 +5,7 @@ import {
 import humanizeDuration from 'humanize-duration'
 import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
 import 'dotenv/config'
+import {version} from '@tankbot/package.json'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('bot')
@@ -28,7 +29,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                     )} users and probably growing.\nBot is up for ${humanizeDuration(
                     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                     interaction.client.uptime!
-                )}. \nRunning version ${process.env.npm_package_version}`,
+                )}. \nRunning version ${version}`,
             },
             {
                 name: 'Creator info and links',
