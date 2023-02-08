@@ -1,6 +1,5 @@
 import { ActivityOptions, ActivityType, Client } from 'discord.js'
 import 'dotenv/config'
-import {version} from './../../../package.json'
 
 export const name = 'ready'
 
@@ -10,7 +9,7 @@ export function execute(client: Client) {
     console.log('[discord.js] Success')
     const activityTexts: ActivityOptions[] = [
         {
-            name: `with version ${version}`,
+            name: `with version ${JSON.parse(packageJSON).version}`,
             type: ActivityType.Playing,
         },
         { name: 'which content to blam or save', type: ActivityType.Watching },

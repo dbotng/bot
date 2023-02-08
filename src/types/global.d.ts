@@ -4,6 +4,7 @@
 declare global {
     var cooldown: Map
     var musicQueues: Map
+    var packageJSON: string
 }
 
 export {}
