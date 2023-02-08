@@ -17,13 +17,16 @@ export async function execute(guild: Guild) {
 function channelFilter(channel: NonThreadGuildBasedChannel | null | undefined) {
     return (
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        channel?.permissionsFor(channel.guild.members.me!, false)
+        channel
+            ?.permissionsFor(channel.guild.members.me!, false)
             .has(PermissionFlagsBits.SendMessages) &&
         channel?.type == ChannelType.GuildText
     )
 }
 
-async function sendEmbed(channel: NonThreadGuildBasedChannel | null | undefined) {
+async function sendEmbed(
+    channel: NonThreadGuildBasedChannel | null | undefined
+) {
     if (channel) {
         await (channel as TextChannel).send({
             embeds: [

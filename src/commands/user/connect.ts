@@ -26,8 +26,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         params: { force: true },
     })
 
-    const sessionId = (sessionStartResult as NGResponse).result.data
-        .session.id
+    const sessionId = (sessionStartResult as NGResponse).result.data.session.id
 
     const filter = (button: MessageComponentInteraction) => {
         button.deferUpdate()
@@ -61,8 +60,8 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                 new ActionRowBuilder<ButtonBuilder>().addComponents(
                     new ButtonBuilder()
                         .setURL(
-                            (sessionStartResult as NGResponse).result
-                                .data.session.passport_url
+                            (sessionStartResult as NGResponse).result.data
+                                .session.passport_url
                         )
                         .setLabel('Login to Newgrounds')
                         .setStyle(ButtonStyle.Link),
@@ -89,8 +88,8 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                                 session_id: sessionId,
                             })
                             if (
-                                !(sessionCheckResult as NGResponse)
-                                    .result.data.session.user
+                                !(sessionCheckResult as NGResponse).result.data
+                                    .session.user
                             ) {
                                 await interaction.editReply({
                                     embeds: [
@@ -102,9 +101,8 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                                 })
                             } else {
                                 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                                const user = (
-                                    sessionCheckResult as NGResponse
-                                ).result.data.session.user!
+                                const user = (sessionCheckResult as NGResponse)
+                                    .result.data.session.user!
                                 await prisma.newgroundsUser.create({
                                     data: {
                                         id: user.id,

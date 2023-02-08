@@ -2,8 +2,8 @@ export type response = {
     status: string
     data: {
         artist: string
-        audio_id: bigint,
-        genre: string,
+        audio_id: bigint
+        genre: string
         listen_url: string
         live: boolean
         on_air_at: bigint
