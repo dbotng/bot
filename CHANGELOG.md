@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2023.2.5](https://github.com/ngtankbot/bot/compare/2023.2.4...2023.2.5) (2023-02-08)
+
+
+### Bug Fixes
+
+* again update getting version ([7264a54](https://github.com/ngtankbot/bot/commit/7264a54df227c681c17f294e63f79e0b74e78fdf))
+* get version from package.json instead of env ([b27ccf9](https://github.com/ngtankbot/bot/commit/b27ccf9636216b8e28ecc9611d2311dc55aceef6))
+* update getting version again ([52d70fc](https://github.com/ngtankbot/bot/commit/52d70fc1b71d4c6d858fc421b0f18096ed9d61e3))
+
 ## [2023.2.4](https://github.com/ngtankbot/bot/compare/2023.2.3...2023.2.4) (2023-02-08)
 
 
