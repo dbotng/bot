@@ -5,7 +5,7 @@ import {
 import humanizeDuration from 'humanize-duration'
 import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
 import 'dotenv/config'
-import {version} from '@tankbot/package.json'
+import {version} from './../../../package.json'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('bot')
