@@ -32,7 +32,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
             },
             {
                 name: 'Creator info and links',
-                value: 'Created by Bread#0012\n[Github repo](https://github.com/ngtankbot/bot)',
+                value: 'Created by Bread#0012\n[Github repo](https://github.com/ngtankbot/bot)\n Profile picture made by [TBerger](https://tberger.newgrounds.com)',
             }
         )
     await interaction.reply({ embeds: [embed] })
