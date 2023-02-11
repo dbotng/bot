@@ -1,5 +1,5 @@
 import { ActivityOptions, ActivityType, Client } from 'discord.js'
-import 'dotenv/config'
+
 
 export const name = 'ready'
 

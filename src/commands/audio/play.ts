@@ -7,7 +7,7 @@ import {
 import commandSuccessEmbedBuilder from '@tankbot/builders/embeds/commandSuccessEmbedBuilder.js'
 import userErrorEmbedBuilder from '@tankbot/builders/embeds/userErrorEmbedBuilder.js'
 import * as distube from '@tankbot/clients/distube.js'
-import 'dotenv/config'
+
 
 import * as voice from '@tankbot/util/voice.js'
 
