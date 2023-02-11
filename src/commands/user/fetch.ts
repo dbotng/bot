@@ -6,7 +6,7 @@ import {
 } from 'discord.js'
 import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
 import userErrorEmbedBuilder from '@tankbot/builders/embeds/userErrorEmbedBuilder.js'
-import prisma from '@tankbot/clients/prisma.js'
+import prisma from '@tankbot/clients/mikro.js'
 import { discordUser, newgroundsUser, Prisma } from '@prisma/client'
 
 export const data = new SlashCommandSubcommandBuilder()

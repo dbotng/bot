@@ -9,11 +9,10 @@ import {
     ButtonStyle,
 } from 'discord.js'
 import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
-import 'dotenv/config'
 import { response as NGResponse } from '@tankbot/types/newgrounds/ioApi/response.js'
 import userErrorEmbedBuilder from '@tankbot/builders/embeds/userErrorEmbedBuilder.js'
 import commandSuccessEmbedBuilder from '@tankbot/builders/embeds/commandSuccessEmbedBuilder.js'
-import prisma from '@tankbot/clients/prisma.js'
+import prisma from '@tankbot/clients/mikro.js'
 import { Prisma } from '@prisma/client'
 
 export const data = new SlashCommandSubcommandBuilder()

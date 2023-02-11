@@ -6,7 +6,7 @@ const cooldown = global.cooldown
 
 const shouldElapse = 10000
 
-import prisma from '@tankbot/clients/prisma.js'
+import prisma from '@tankbot/clients/mikro.js'
 import { Prisma, servers } from '@prisma/client'
 
 async function whitelist(interaction: ChatInputCommandInteraction) {

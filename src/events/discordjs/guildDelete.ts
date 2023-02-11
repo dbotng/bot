@@ -1,5 +1,5 @@
 import { Guild } from 'discord.js'
-import prisma from '@tankbot/clients/prisma.js'
+import prisma from '@tankbot/clients/mikro.js'
 
 export const name = 'guildDelete'
 

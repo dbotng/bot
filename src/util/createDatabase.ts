@@ -1,4 +1,4 @@
-import prisma from '@tankbot/clients/prisma.js'
+import prisma from '@tankbot/clients/mikro.js'
 import { ChatInputCommandInteraction, Guild } from 'discord.js'
 
 export async function interactionPreCreate(

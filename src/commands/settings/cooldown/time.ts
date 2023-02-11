@@ -1,4 +1,4 @@
-import prisma from '@tankbot/clients/prisma.js'
+import prisma from '@tankbot/clients/mikro.js'
 import {
     ChatInputCommandInteraction,
     SlashCommandNumberOption,

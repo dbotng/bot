@@ -1,8 +1,10 @@
 import * as discordjs from '@tankbot/clients/discordjs.js'
 import * as distube from '@tankbot/clients/distube.js'
-import 'dotenv/config'
 import SegfaultHandler from 'segfault-handler'
 import fs from 'node:fs'
+import * as dotenv from 'dotenv' 
+
+dotenv.config()
 
 global.cooldown = new Map()
 global.musicQueues = new Map()

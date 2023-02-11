@@ -4,7 +4,6 @@ import {
 } from 'discord.js'
 import humanizeDuration from 'humanize-duration'
 import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
-import 'dotenv/config'
 
 export const data = new SlashCommandSubcommandBuilder()
     .setName('bot')

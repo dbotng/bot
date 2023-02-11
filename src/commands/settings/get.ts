@@ -3,7 +3,7 @@ import {
     SlashCommandSubcommandBuilder,
 } from 'discord.js'
 import embedBuilder from '@tankbot/builders/embeds/embedBuilder.js'
-import prisma from '@tankbot/clients/prisma.js'
+import prisma from '@tankbot/clients/mikro.js'
 import { Prisma, servers } from '@prisma/client'
 
 export const data = new SlashCommandSubcommandBuilder()
