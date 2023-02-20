@@ -8,7 +8,6 @@ import commandSuccessEmbedBuilder from '@tankbot/builders/embeds/commandSuccessE
 import userErrorEmbedBuilder from '@tankbot/builders/embeds/userErrorEmbedBuilder.js'
 import * as distube from '@tankbot/clients/distube.js'
 
-
 import * as voice from '@tankbot/util/voice.js'
 
 export const data = new SlashCommandSubcommandBuilder()
@@ -34,11 +33,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
                 new commandSuccessEmbedBuilder().create('Song is unpaused.'),
             ],
         })
-    } else if (
-        !link ||
-        (!link.includes('newgrounds.com') &&
-            member.id != interaction.client.application?.owner?.id)
-    ) {
+    } else if (!link || !link.includes('newgrounds.com')) {
         await interaction.reply({
             embeds: [
                 new userErrorEmbedBuilder().create(
